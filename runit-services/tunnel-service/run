@@ -1,0 +1,2 @@
+#!/bin/bash
+~/bin/ngrok tcp 22 --log=stdout -config ~/git/ngrok-config.yml
