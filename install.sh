@@ -14,9 +14,14 @@ mkdir git
 cd git
 git clone https://github.com/untrobotics/IEEE-R5-2019
 
-echo "Please input the dynamic dns API key (from dyndns.untrobotics.com), followed by [ENTER]:"
+echo "Please input the dynamic DNS API key (from dyndns.untrobotics.com), followed by [ENTER]:"
 read dyndns_api_key
+
+echo "Please input the ngrok auth token (from ngrok.com), followed by [ENTER]:"
+read ngrok_auth_token
+
 echo "DYNDNS_API_KEY=${dyndns_api_key}" > ~/git/config.txt
+echo "authtoken: ${ngrok_auth_token}" > ~/git/ngrok-config.yml
 
 # add extra commands for debugging
 cat ~/git/root/.bashrc > ~/.bashrc
