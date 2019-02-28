@@ -24,4 +24,4 @@ if [ "${test}" -eq 1 ]; then
 	exit;
 fi
 
-wget "http://${API_HOST}/api/ip2host.php?sub_domain=${SUB_DOMAIN}&super_domain=${SUPER_DOMAIN}&ip=$ip&ttl=$ttl" -qO- && echo ""
+wget "http://${API_HOST}/api/ip2host.php?sub_domain=${SUB_DOMAIN}&super_domain=${SUPER_DOMAIN}&API_KEY=${API_KEY}&ip=${ip}&ttl=${ttl}" -qO- && echo ""
