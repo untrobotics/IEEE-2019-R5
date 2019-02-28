@@ -24,7 +24,7 @@ echo "DYNDNS_API_KEY=${dyndns_api_key}" > ~/git/config.txt
 echo "authtoken: ${ngrok_auth_token}" > ~/git/ngrok-config.yml
 
 # add extra commands for debugging
-cat ~/git/root/.bashrc > ~/.bashrc
+cat ~/git/root/.bashrc >> ~/.bashrc
 
 # set up dyndns
 ln -s ~/git/bin/dyndns.sh ~/bin/dyndns.sh
