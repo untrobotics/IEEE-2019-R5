@@ -46,8 +46,8 @@ ln -s ~/git/runit-services/tunnel-service /etc/service/
 # done with runit
 
 # set up tunnel service?
-echo "@reboot curl -s -X POST https://www.untrobotics.com/api/robots/tunnel -d '{\"tunnel\":\"\'`/root/bin/get-tunnel-url.sh\`'\",\"endpoint\":\"${NAME}\"}'" >> /tmp/crontab
-echo "*/15 * * * * curl -s -X POST https://www.untrobotics.com/api/robots/tunnel -d '{\"tunnel\":\"\'`/root/bin/get-tunnel-url.sh\`'\",\"endpoint\":\"${NAME}\"}'" >> /tmp/crontab
+echo "@reboot curl -s -X POST https://www.untrobotics.com/api/robots/tunnel -H \"Content-Type: application/json\" -d '{\"tunnel\":\"\'`/root/bin/get-tunnel-url.sh\`'\",\"endpoint\":\"${NAME}\"}'" >> /tmp/crontab
+echo "*/15 * * * * curl -s -X POST https://www.untrobotics.com/api/robots/tunnel -H \"Content-Type: application/json\" -d '{\"tunnel\":\"\'`/root/bin/get-tunnel-url.sh\`'\",\"endpoint\":\"${NAME}\"}'" >> /tmp/crontab
 # done with tunnel service
 
 # set up cron
