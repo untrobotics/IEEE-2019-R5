@@ -7,12 +7,17 @@ if [[ $EUID -ne 0 ]]; then
 	exit 1
 fi
 
+NAME="robopi"
+DNS_NAME="${NAME}.dyndns"
+
+apt-get install git runit runit-systemd jq -y
+
 cd ~
-mkdir bin
-mkdir git
+mkdir -p bin
+mkdir -p git
 
 cd git
-git clone https://github.com/untrobotics/IEEE-R5-2019
+git clone https://github.com/untrobotics/IEEE-R5-2019 .
 
 echo "Please input the dynamic DNS API key (from dyndns.untrobotics.com), followed by [ENTER]:"
 read dyndns_api_key
@@ -28,22 +33,23 @@ cat ~/git/root/.bashrc >> ~/.bashrc
 
 # set up dyndns
 ln -s ~/git/bin/dyndns.sh ~/bin/dyndns.sh
-echo "@reboot /root/bin/dyndns.sh untrobotics.com jetson" > /tmp/crontab
-echo "*/15 * * * * /root/bin/dyndns.sh untrobotics.com jetson" >> /tmp/crontab
+echo "@reboot /root/bin/dyndns.sh untrobotics.com ${DNS_NAME}" > /tmp/crontab
+echo "*/15 * * * * /root/bin/dyndns.sh untrobotics.com ${DNS_NAME}" >> /tmp/crontab
 #crontab /tmp/crontab
 # done with dyndns
 
 # set up runit
 ln -s ~/git/bin/ngrok ~/bin/ngrok
 ln -s ~/git/bin/get-tunnel-url.sh ~/bin/get-tunnel-url.sh
-dpkg -i src/runit_2.1.2-9.2ubuntu1_arm64.deb # this will produce an error about upstart (on Ubuntu 15+), ignore it
-dpkg -i src/runit-systemd_2.1.2-9.2ubuntu1_all.deb
+ln -s ~/git/bin/get-api-key.sh ~/bin/get-api-key.sh
+#dpkg -i src/runit_2.1.2-9.2ubuntu1_arm64.deb # this will produce an error about upstart (on Ubuntu 15+), ignore it
+#dpkg -i src/runit-systemd_2.1.2-9.2ubuntu1_all.deb
 ln -s ~/git/runit-services/tunnel-service /etc/service/
 # done with runit
 
 # set up tunnel service?
-echo "@reboot curl -s -X POST https://www.untrobotics.com/api/robots/tunnel -d '{\"tunnel\":\"\`/root/bin/get-tunnel-url.sh\`\",\"endpoint\":\"jetson\"}'" >> /tmp/crontab
-echo "*/15 * * * * curl -s -X POST https://www.untrobotics.com/api/robots/tunnel -d '{\"tunnel\":\"\`/root/bin/get-tunnel-url.sh\`\",\"endpoint\":\"jetson\"}'" >> /tmp/crontab
+echo "@reboot curl -s -X POST https://www.untrobotics.com/api/robots/tunnel -d '{\"tunnel\":\"\'`/root/bin/get-tunnel-url.sh\`'\",\"endpoint\":\"${NAME}\",\"api_key\":\"'`/root/bin/get-api-key.sh tunnel`'\"}'" >> /tmp/crontab
+echo "*/15 * * * * curl -s -X POST https://www.untrobotics.com/api/robots/tunnel -d '{\"tunnel\":\"\'`/root/bin/get-tunnel-url.sh\`'\",\"endpoint\":\"${NAME}\",\"api_key\":\"'`/root/bin/get-api-key.sh tunnel`'\"}'" >> /tmp/crontab
 # done with tunnel service
 
 # set up cron
