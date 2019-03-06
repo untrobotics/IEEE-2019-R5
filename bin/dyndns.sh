@@ -17,7 +17,7 @@ SUPER_DOMAIN="${1}";
 SUB_DOMAIN="${2}";
 
 ip=`/sbin/ifconfig | grep -Eo 'inet (addr:)?([0-9]*\.){3}[0-9]*' | grep -Eo '([0-9]*\.){3}[0-9]*' | grep -v '127.0.0.1'`;
-ttl=60;
+ttl=300;
 
 if [ "${test}" -eq 1 ]; then
 	echo $ip;
