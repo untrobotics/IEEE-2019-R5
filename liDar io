@@ -1,0 +1,54 @@
+/*
+ comes from:
+ https://www.elecrow.com/download/TF-MINI-LIDAR-USER-MANUAL.pdf
+ */
+
+ #include <SoftwareSerial.h>//header file for software serial port
+const int liDarTx = 10;// transmission of signal
+const int liDarRx = 11;//reception of signal
+SoftwareSerial Serial1( liDarRx, liDarTx );// ( Rx, Tx )
+int dist;//distance measured by lidar
+int str;//strength of signal by lidar
+int check;//saves the checked value
+int i;//counter for iterators
+int uart[9];//array to save data measured by lidar in the uart chip
+//check page 13 in the manual website printed above for information on
+// hexideicmal byte arrangement
+const int HEADER = 0x59;//header frame for lidar
+void setup() 
+{ 
+  Serial.begin ( 9600 );// bit rate from arduino to computer
+  Serial1.begin ( 115200 );// bit rate of lidar to arduino
+}
+
+
+void loop() 
+{
+  if (Serial1.available () )
+  {
+    if ( Serial1.read() == HEADER )//first byte is header frame
+    {
+      uart[0] = HEADER;
+        if ( Serial1.read() == HEADER )// second byte is header frame
+        {
+          uart[1] = HEADER;
+            for ( i = 2; i < 9; i++ )//saves rest of signal in uart array
+            {
+              uart[i] = Serial1.read();
+            }
+            check = uart[0] + uart[1] + uart[2] + uart[3] + uart[4] + uart[5] + uart[6] + uart[7];
+            if ( uart[8] == (check&0xff) )//this verifies the data has no errors
+            {
+              dist = uart[2] + uart[3];//calculates distance in mm according to product specs
+              str = uart[4] + uart[5];//calculates signal strength
+              Serial.print("object dist=");
+              Serial.print( dist );//outputs to screen distance to object 
+              Serial.print('\t');
+              Serial.print("signal strength= ");
+              Serial.print( str );//outputs to screen signal strength to object
+              Serial.print( '\n' );
+            }
+       }
+     }
+   }
+ }
