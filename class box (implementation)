@@ -1,0 +1,191 @@
+/*
+implementation file for boxes
+created by David Lockhart R5 IEEE UNT ROBOTICS
+due to competition growth from round to round,
+vector allocated memory will be used in the class
+*/
+#include <vector>
+#include <iostream>
+#include <fstream>
+#include <iomanip>
+#include <cmath>
+#include <string>
+#include "box.h"
+using namespace std;
+Box::Box ()
+{
+	boxes = new Box;
+	x = 0;
+	y = 0;
+	z = 0;
+	h = 0;
+	w = 0;
+	l = 0;
+	v = 0;
+	a = 0;
+	letter = 'z';
+}
+
+Box::~Box()
+{
+	delete boxes;
+}
+
+double Box::figVol ( double V, double H, double W, double L )
+{
+	V = H * W * L;
+	return V;
+}
+
+double Box::isBox ( double &V )
+{
+	if ( V == pow ( 1.5, 3 ))
+	{
+		*boxes.pushback ();//probably needs some work
+	}
+}
+//found some useful information here...currently not able to implement is...
+//https://en.wikipedia.org/wiki/Normal_(geometry)
+//https://www.khronos.org/opengl/wiki/Calculating_a_Surface_Normal
+//https://www.cat.nyu.edu/~perlin/courses/spring2012/computing-normals.html
+//https://computergraphics.stackexchange.com/questions/1562/how-to-calculate-surface-normals-for-generated-geometry
+double Box::figAngle ( double X, double Y, double Z )
+{
+	// finds surface normal to box
+	/*
+	psuedo code:
+	 say points are p[0][0][0] through p[3][3][3]
+	 then read in x1, y1, z1 through x4, y4, z4
+	 then vectorA = (x2 - x1), (y2 - y1), (z2 - z1)
+	 then vectorB = (x4-x1), (y4-y1), (z4-z1)
+	 then cross multiply
+	 and you'll get:
+	 (y2-y1)(z4-z1) - (z2 - z1)(y4-y1);
+	 -(x2 - x1)(z4-z1)+(z2-z1)(x4-x1);
+	 (x2-x1)(y4-y1) - (y2 - y1)(x4 - x1 );
+	 then normalize the above vector...
+	 this method can be applied to multiple sides,
+	 but i dont currently know how to code this using c++
+	 */
+}
+
+//unknown implementation of saving data...so left open
+void Box::stoBox ( Box &obj, fstream outFile, string fName )
+{
+	outFile.open ( fName );
+	if (outFile.is_open())
+	{
+		
+		outFile << boxes;
+		cout << "File was successfuly written to\n"
+	}
+	else
+	{
+		cout << "Unable to open file.\n";
+	}
+}
+
+//unknown implementation of loading data... so left open
+Box Box::loadBox ( fstream inFile, string fName )
+{
+	inFile.open (fName);
+	if (inFIle.is_open())
+	{
+		inFile >> boxes.pushback();
+		cout << "File was successfully loaded\n";
+	}
+	else
+	{
+		cout << "Unable to open file.\n";
+	}
+}
+
+void Box::setX ( double X )
+{
+	x = X;
+}
+
+double Box::getX () const
+{
+	return x;
+}
+
+void Box::setY ( double Y )
+{
+	y = Y;
+}
+
+double Box::getY () const
+{
+	return y;
+}
+
+void Box::setZ ( double Z )
+{
+	z = Z;
+}
+
+double Box::getZ () const
+{
+	return z;
+}
+
+void Box::setH ( double H )
+{
+	h = H;
+}
+
+double Box::getH () const
+{
+	return h;
+}
+
+void Box::setW ( double W )
+{
+	w = W;
+}
+
+double Box::getW () const
+{
+	return w;
+}
+
+void Box::setL ( double L )
+{
+	l = L;
+}
+
+double Box::getL () const
+{
+	return l;
+}
+
+void Box::setV ( double V )
+{
+	v = V;
+}
+
+double Box::getV () const
+{
+	return v;
+}
+
+void Box::setA ( double A )
+{
+	a = A;
+}
+
+double Box::getA () const
+{
+	return a;
+}
+
+void setLetter ( char Letter )
+{
+	letter = Letter;
+}
+
+char getLetter () const
+{
+	return letter;
+}
