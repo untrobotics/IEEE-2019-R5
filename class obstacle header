@@ -1,0 +1,57 @@
+/*
+class for obstacles
+created by David Lockhart R5 IEEE UNT ROBOTICS
+due to competition growth from round to round,
+vector allocated memory will be used in the main
+*/
+#ifndef OBS_H
+#define OBS_H
+#include <iostream>
+#include <fstream>
+#include <iomanip>
+#include <cmath>
+#include <string>
+const double PI = 3.14159265359;
+using namespace std;
+class Obs
+{
+	private:
+		vector < Obs > obj;
+		/*
+		math for sphere is all encompassing
+		if it figures out center of sphere in x,y,z coordinate system it will still be center
+		for x,y cordinate and be center for cylinder that is supporting the sphere
+		*/
+		double x;//where center of objstacle is on x axis in millimeters
+		double y;// where center of objstacle is on y axis in millimeters
+		double z;// where center of obstacel is on z axis in millimeters
+		double r;// radius of sphere
+		/*
+		I included circumference of sphere, to use to raise flags for obstacles
+		*/
+		double circ;
+		double v;//volume of sphere		
+	public:
+		Obs();
+		~Obs();
+		double figVol ( double R );
+		double isObs ( double &V, Obs &obj )
+		//unsure if you want these functions but they are available
+		void stoObs ( Obs &obj, fstream outFile, string fName );//stores obstacle to harddrive. outFile sends out a file, fName = filename
+		Obs loadObs (fstream inFile, string fName );//load box from harddrive for processing. inFile reads files, fname = filename
+		//setters and getters
+		//can be used as flags for further action
+		void setX ( double X );
+		double getX () const;
+		void setY ( double Y );
+		double getY () const;
+		void setZ ( double Z );
+		double getZ () const;
+		void setR ( double R );
+		double getR () const;
+		void setC ( double C );
+		double getC () const;
+		void setV ( double V );
+		double getV () const;
+};
+#endif //OBS_H
