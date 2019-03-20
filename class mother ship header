@@ -1,0 +1,54 @@
+/*
+class for mother ship
+created by David Lockhart R5 IEEE UNT ROBOTICS
+due to competition growth from round to round,
+vector allocated memory will be used in the main
+*/
+#ifndef MS_H// ms stands for mothership...
+#define MS_H
+#include <iostream>
+#include <fstream>
+#include <iomanip>
+#include <cmath>
+#include <string>
+using namespace std;
+class MS
+{
+	private:
+		MS ms;//creates instant of ms
+		double x;//where the center of the mother ship is on the x axis in millimeters
+		double y;//where the center of the mother ship is on the y axis in millimeters
+		double z;//where the center of the mother ship is on the z axis in millimeters
+		double h;//height of mother ship
+		double w; //width of mother ship
+		double l; // length of mother ship
+		double v;// volume of mother ship
+		double a;//angle mother ship is facing
+	public:
+		MS();
+		~MS();
+		double figVolMs ( double H, double W, double L); 
+		double isMs ( double V );
+		//unsure if you want these functions but they are available
+		void stoMs ( MS &obj, fstream outFile, string fName );//stores obstacle to harddrive. outFile sends out a file, fName = filename
+		MS loadMs (fstream inFile, string fName );//load box from harddrive for processing. inFile reads files, fname = filename
+		//setters and getters
+		//can be used as flags for further action
+		void setX ( double X );
+		double getX () const;
+		void setY ( double Y );
+		double getY () const;
+		void setZ ( double Z );
+		double getZ () const;
+		void setH ( double H );
+		double getH () const;
+		void setW ( double W );
+		double getW () const;
+		void setL ( double L );
+		double getL () const;
+		void setV ( double V );
+		double getV () const;
+		void setA( double Angle );
+		double getA () const;
+};
+#endif //MS_H
