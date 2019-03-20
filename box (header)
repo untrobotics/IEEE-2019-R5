@@ -1,0 +1,60 @@
+/*
+class for boxes
+created by David Lockhart R5 IEEE UNT ROBOTICS
+due to competition growth from round to round,
+vector allocated memory will be used in the class 
+*/
+#ifndef BOX_H
+#define BOX_H
+#include <vector>
+#include <iostream>
+#include <fstream>
+#include <iomanip>
+#include <cmath>
+#include <string>
+using namespace std;
+class Box
+{
+	private:
+		vector <Box> boxes;
+		double p[4][4][4];//points on a cube each x, y, z axis
+		double x;//where the center of the box is on the x axis in millimeters...cubes have 4 points in contact with x axis
+		double y;//where the center of the box is on the y axis in millimeters
+		double z;// where the center of the box is on the z axis in millimeters
+		double h;// height of box
+		double w;//width of box
+		double l;//length of box
+		double v;//box volume
+		double a;//angle box is facing
+		char letter;//letter on box
+	public;
+		Box();//constructor
+		~Box();//destructor
+		double figVol( double V, double H, double W, double L );//figures out volume of object
+		double isBox ( double &V );//tells user that object is a box
+		double figAngle( double W, double L );//figures out the angle the object is facing	from current position
+		//unsure if you want these functions but they are available
+		void stoBox ( Box *obj, fstream outFile, string fName );//stores box to harddrive? outFile sends out a file, fName = filename
+		Box loadBox (fstream inFile, string fName );//load box from harddrive for processing. inFile reads files, fname = filename
+		//setters and getters
+		//can be used as flags for further actions on boxes
+		void setX ( double X );
+		double getX () const;
+		void setY ( double Y );
+		double getY () const;
+		void setZ ( double Z );
+		double getZ () const;
+		void setH ( double H );
+		double getH () const;
+		void setW ( double W );
+		double getW () const;
+		void setL ( double L );
+		double getL () const;
+		void setV ( double V );
+		double getV () const;
+		void setA( double A );
+		double getA () const;
+		void setLetter ( char Letter );
+		char getLetter () const;
+};
+#endif //BOX_H
