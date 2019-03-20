@@ -1,0 +1,181 @@
+/*
+class for obstacles
+created by David Lockhart R5 IEEE UNT ROBOTICS
+due to competition growth from round to round,
+vector allocated memory will be used in the class
+*/
+#include <iostream>
+#include <fstream>
+#include <iomanip>
+#include <cmath>
+#include <string>
+#include "ms.h"
+using namespace std;
+MS::MS()
+{
+	ms = new MS;
+	x = 0;
+	y = 0;
+	z = 0;
+	h = 0;
+	w = 0;
+	l = 0;
+	v = 0;
+	a = 0;
+}
+
+MS::~MS()
+{
+	delete ms;
+}
+
+double MS::figVolMs ( double H, double W, double L )
+{
+	double V = H * W * L;
+	return V;
+}
+
+double MS::isMS ( double V, double H, double W, double L )
+{
+	if ( (V > (126.5))|| (V < (372.3)))
+	{
+		ms.setH ( H );
+		ms.setW ( W );
+		ms.setL ( L );
+	}
+}
+
+void MS::stoMs ( MS &ms, fstream outFile, string fName )
+{
+	outFile.open ( fName );
+	if (outFile.is_open())
+	{
+		
+		outFile << boxes;
+		cout << "File was successfuly written to\n"
+	}
+	else
+	{
+		cout << "Unable to open file.\n";
+
+	}
+}
+
+MS MS::loadMS ( fstream inFile, string fName )
+{
+	inFile.open (fName);
+	if (inFIle.is_open())
+	{
+		inFile >> boxes.pushback();
+		cout << "File was successfully loaded\n";
+	}
+	else
+	{
+		cout << "Unable to open file.\n";
+	}
+}
+
+//found some useful information here...currently not able to implement is...
+//https://en.wikipedia.org/wiki/Normal_(geometry)
+//https://www.khronos.org/opengl/wiki/Calculating_a_Surface_Normal
+//https://www.cat.nyu.edu/~perlin/courses/spring2012/computing-normals.html
+//https://computergraphics.stackexchange.com/questions/1562/how-to-calculate-surface-normals-for-generated-geometry
+double MS::figAngle ( double X, double Y, double Z )
+{
+	// finds surface normal to box
+	/*
+	psuedo code:
+	 say points are p[0][0][0] through p[3][3][3]
+	 then read in x1, y1, z1 through x4, y4, z4
+	 then vectorA = (x2 - x1), (y2 - y1), (z2 - z1)
+	 then vectorB = (x4-x1), (y4-y1), (z4-z1)
+	 then cross multiply
+	 and you'll get:
+	 (y2-y1)(z4-z1) - (z2 - z1)(y4-y1);
+	 -(x2 - x1)(z4-z1)+(z2-z1)(x4-x1);
+	 (x2-x1)(y4-y1) - (y2 - y1)(x4 - x1 );
+	 then normalize the above vector...
+	 this method can be applied to multiple sides,
+	 but i dont currently know how to code this using c++
+	 */
+}
+
+void MS::setX ( double X )
+{
+	x = X;
+}
+
+double MS::getX () const
+{
+	return x;
+}
+
+void MS::setY ( double Y )
+{
+	y = Y;
+}
+
+double MS::getY () const
+{
+	return y;
+}
+
+void MS::setZ ( double Z )
+{
+	z = Z;
+}
+
+double MS::getZ () const
+{
+	return z;
+}
+
+void MS::setH (double H )
+{
+	h = H;
+}
+
+double MS::getH () const
+{
+	return h;
+}
+
+void MS::setW ( double W )
+{
+	w = W;
+}
+
+double MS::getW () const
+{
+	return w;
+}
+
+void MS::setL ( double L )
+{
+	l = L;
+}
+
+double MS::getL () const
+{
+	return L;
+}
+
+void MS::setV ( double V )
+{
+	v = V;
+}
+
+double MS::getV () const
+{
+	return v;
+}
+
+void MS::setA ( double Angle )
+{
+	a = Angle;
+}
+
+double MS::getA () const
+{
+	return a;
+}
