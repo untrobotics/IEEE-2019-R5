@@ -1,0 +1,135 @@
+/*
+class for obstacles
+created by David Lockhart R5 IEEE UNT ROBOTICS
+due to competition growth from round to round,
+vector allocated memory will be used in the class
+*/
+#include <iostream>
+#include <fstream>
+#include <iomanip>
+#include <cmath>
+#include <string>
+#include "obs.h"
+const double PI = 3.14159265359;
+using namespace std;
+Obs::Obs()
+{
+	obj = new Obs;
+	x = 0;
+	y = 0;
+	z = 0;
+	r = 0;
+	circ = 0;
+	v = 0;
+}
+
+Obs::~Obs()
+{
+	delete obj;
+}
+
+double Obs::figVol ( double R, double &V )
+{
+	V = (4/3) * PI * pow( R, 3 );
+	return V;
+}
+
+double Obs::isObs ( double &V, &obj )
+{
+	if ( V == ((4/3) * PI * pow(.75, 3)))
+	{
+		*obj.pushback();
+		return obj;
+	}
+}
+
+void Obs:: stoObs ( Obs &obj, fstream outFile, string fName )
+{
+	outFile.open ( fName );
+	if (outFile.is_open())
+	{
+		
+		outFile << boxes;
+		cout << "File was successfuly written to\n"
+	}
+	else
+	{
+		cout << "Unable to open file.\n";
+
+	}
+}
+
+Obs Obs::loadObs (fstream inFile, string fName )
+{
+	inFile.open (fName);
+	if (inFIle.is_open())
+	{
+		inFile >> boxes.pushback();
+		cout << "File was successfully loaded\n";
+	}
+	else
+	{
+		cout << "Unable to open file.\n";
+	}
+}
+
+void Obs::setX ( double X )
+{
+	x = X;
+}
+
+double Obs::getX () const
+{
+	return x;
+}
+
+void Obs::setY ( double Y )
+{
+	y = Y;
+}
+
+double Obs::getY () const
+{ 
+	return y;
+}
+
+void Obs::setZ ( double Z )
+{
+	z = Z;
+}
+
+double Obs::getZ () const
+{
+	return z;
+}
+
+void Obs::setR ( double R )
+{
+	r = R;
+}
+
+double Obs::getR () const
+{
+	return r;
+}
+
+void Obs::setC ( double C )
+{
+	circ = C;
+}
+
+double Obs::getC () const
+{
+	return circ;
+}
+
+void Obs::setV ( double V )
+{
+	v = V;
+}
+
+doble Obs::getV () const
+{
+	return v;
+}
+
