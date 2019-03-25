@@ -61,9 +61,9 @@ gyroskop_xout = lesen_wort_2c(0x43)
 gyroskop_yout = lesen_wort_2c(0x45)
 gyroskop_zout = lesen_wort_2c(0x47)
 
-print "gyroskop_xout: ", ("%5d" % gyroskop_xout), " skaliert: ", (gyroskop_xout / 131)
-print "gyroskop_yout: ", ("%5d" % gyroskop_yout), " skaliert: ", (gyroskop_yout / 131)
-print "gyroskop_zout: ", ("%5d" % gyroskop_zout), " skaliert: ", (gyroskop_zout / 131)
+print "gyroskop_xout: ", ("%5d" % gyroskop_xout), " skaliert: ", (gyroskop_xout / 131) # roll
+print "gyroskop_yout: ", ("%5d" % gyroskop_yout), " skaliert: ", (gyroskop_yout / 131) # pitch
+print "gyroskop_zout: ", ("%5d" % gyroskop_zout), " skaliert: ", (gyroskop_zout / 131) # yaw 
 
 print
 print "Beschleunigungssensor"
