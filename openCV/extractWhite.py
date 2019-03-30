@@ -28,17 +28,26 @@ image = cv2.resize(image, (3280//scaleDown,2464//scaleDown))
 # rotate
 image = imutils.rotate(image,180)
 
-# convert to gray scale
+hsv = cv2.cvtColor(image, cv2.COLOR_BGR2HSV)
+
 #image = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
 
-#edges = cv2.Canny(image, 100, 200)
+lowerWhite = np.array([70,0,50])
+upperWhite = np.array([180,180,180])
+
+mask = cv2.inRange(hsv, lowerWhite, upperWhite)
+res = cv2.bitwise_and(image, image, mask = mask)
+
 
 # display the image on screen and wait for a keypress
 cv2.imshow("Image", image)
+cv2.imshow("mask", mask)
+cv2.imshow("res", res)
 cv2.imwrite('test.png', image)
-cv2.waitKey(0)
+k = cv2.waitKey(0)
 
-
+cv2.destroyallWindows()
+cap.release()
 
 
 
