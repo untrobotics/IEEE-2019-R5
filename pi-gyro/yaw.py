@@ -68,7 +68,7 @@ gyroskop_zout = lesen_wort_2c(0x47)
 p = 0;
 
 while True:
-	print("=========================");
+	print("\r=========================");
 	roll_raw = lesen_wort_2c(0x43)
 	roll = roll_raw / 131
 	print("ROLL", roll)

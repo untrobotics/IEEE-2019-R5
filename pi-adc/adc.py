@@ -8,32 +8,20 @@ import time
 import Adafruit_GPIO.SPI as SPI
 import Adafruit_MCP3008
 
-
-# Software SPI configuration:
 CLK  = 18
 MISO = 23
 MOSI = 24
 CS   = 25
 mcp = Adafruit_MCP3008.MCP3008(clk=CLK, cs=CS, miso=MISO, mosi=MOSI)
 
-# Hardware SPI configuration:
-# SPI_PORT   = 0
-# SPI_DEVICE = 0
-# mcp = Adafruit_MCP3008.MCP3008(spi=SPI.SpiDev(SPI_PORT, SPI_DEVICE))
-
-
-print('Reading MCP3008 values, press Ctrl-C to quit...')
-# Print nice channel column headers.
-print('| {0:>4} | {1:>4} | {2:>4} | {3:>4} | {4:>4} | {5:>4} | {6:>4} | {7:>4} |'.format(*range(8)))
-print('-' * 57)
-# Main program loop.
 while True:
-    # Read all the ADC channel values in a list.
-    values = [0]*8
-    for i in range(8):
-        # The read_adc function will get the value of the specified channel (0-7).
-        values[i] = mcp.read_adc(i)
-    # Print the ADC values.
-    print('| {0:>4} | {1:>4} | {2:>4} | {3:>4} | {4:>4} | {5:>4} | {6:>4} | {7:>4} |'.format(*values))
-    # Pause for half a second.
-    time.sleep(0.5)
+	print("=============================");
+	print("Channel 0", mcp.read_adc(0));
+	print("Channel 1", mcp.read_adc(1));
+	print("Channel 2", mcp.read_adc(2));
+	print("Channel 3", mcp.read_adc(3));
+	print("Channel 4", mcp.read_adc(4));
+	print("Channel 5", mcp.read_adc(5));
+	print("Channel 6", mcp.read_adc(6));
+	print("Channel 7", mcp.read_adc(7));
+	time.sleep(0.1)
