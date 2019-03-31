@@ -7,7 +7,7 @@ from pca9685_library import PCA9685
 
 i2c_bus = busio.I2C(SCL, SDA)
 pca = PCA9685(i2c_bus)
-pca.frequency = 60
+pca.frequency = 50
 
 M1_IN1 = 2
 M1_IN2 = 3
@@ -24,7 +24,6 @@ time.sleep(0.5)
 
 # Set the PWM duty cycle for channel zero to 50%. duty_cycle is 16 bits to match other PWM objects
 # but the PCA9685 will only actually give 12 bits of resolution.
-#while True:
 pca.channels[M1_IN1].duty_cycle = 0xffff
 pca.channels[M1_IN2].duty_cycle = 0x0000
-pca.channels[M1_ENA].duty_cycle = 0x1000
+pca.channels[M1_ENA].duty_cycle = 0x7fff
