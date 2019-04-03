@@ -6,36 +6,35 @@ import math
 import smbus
 
 class hardwareControl:
-    def __init__():
-        self.addr = 0x8 # bus address
-        self.bus = smbus.SMBus(1) # indicates /dev/ic2-1
+    addr = 0x8 # bus address
+    bus = smbus.SMBus(1) # indicates /dev/ic2-1
 
-        self.currentX = 500
-        self.currentY = 500
-        self.currentRot = 0 #in degrees
+    currentX = 500
+    currentY = 500
+    currentRot = 0 #in degrees
 
-        self.destX = 501
-        self.destY = 500
-        self.destRot = 0 #just moving forward to start with pi code
+    destX = 501
+    destY = 500
+    destRot = 0 #just moving forward to start with pi code
 
-        self.V1 = 0
-        self.V2 = 0
-        self.V3 = 0
-        self.V4 = 0
+    V1 = 0
+    V2 = 0
+    V3 = 0
+    V4 = 0
 
-        self.grabber_Move_Flag = False
-        self.grabber_Run_Flag  = False
+    grabber_Move_Flag = False
+    grabber_Run_Flag  = False
 
-        self.Vd = .5 #Desired Speed
+    Vd = .5 #Desired Speed
 
-        self.Angle = 0
+    Angle = 0
 
-        self.AngleSpeed = 0
+    AngleSpeed = 0
 
-        #Then reference the data to get distance/difference values
-        self.diffX = destX - currentX
-        self.diffY = destY - currentY
-        self.diffRot = destRot - currentRot
+    #Then reference the data to get distance/difference values
+    diffX = destX - currentX
+    diffY = destY - currentY
+    diffRot = destRot - currentRot
 
 
     def Send(inputString):
