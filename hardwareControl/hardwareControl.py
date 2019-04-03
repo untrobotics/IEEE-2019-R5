@@ -63,6 +63,17 @@ class hardwareControl:
             grabber_Move_Flag = False
         self.send(inputString)
 
+    def pickupBlock(self):
+        # get flush
+        # drive X distance
+        # translate left until block is out of view
+        # translate right from block detected to half block
+        # drive forward X distance
+        # move up grabber
+        # drive forward a little more
+        # lower grabber and turn on grabber
+        # check if block picked up
+
 
     def runGrabber(self, logic):
         global grabber_Run_Flag
@@ -79,6 +90,3 @@ class hardwareControl:
 #Main instructions
 #Here is where we will recieve our vector of commands
 #vector from C++ Loaded here
-controller = hardwareControl()
-
-controller.move(1,2)
