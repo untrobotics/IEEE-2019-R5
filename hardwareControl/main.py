@@ -3,7 +3,7 @@ from lidar import lidarControl
 import time
 import math
 
-lidar = file.lidarControl()
+lidar = lidar.lidarControl()
 
 #controller = file.hardwareControl()
 
