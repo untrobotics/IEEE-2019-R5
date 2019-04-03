@@ -1,14 +1,14 @@
-from lidar import lidarControl
+from .lidar import lidarControl
 #from hardwareControl import hardwareControl
 import time
 import math
 
-lidar = lidar.lidarControl()
+lidarObj = lidar.lidarControl()
 
 #controller = file.hardwareControl()
 
 
-print(lidar.getReading());
+print(lidarObj.getReading());
 
 #controller.move(1,2)
 
