@@ -86,4 +86,4 @@ class hardwareControl:
 #vector from C++ Loaded here
 controller = hardwareControl()
 
-move(1,2)
+controller.move(1,2)
