@@ -1,5 +1,5 @@
-from lidar.py import lidarControl
-from hardwareControl.py import hardwareControl
+from lidar import lidarControl
+from hardwareControl import hardwareControl
 import time
 import math
 
