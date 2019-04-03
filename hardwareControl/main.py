@@ -1,4 +1,4 @@
-from .lidar import lidarControl
+from hardwareControl.lidar import lidarControl
 #from hardwareControl import hardwareControl
 import time
 import math
