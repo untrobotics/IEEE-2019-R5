@@ -37,7 +37,7 @@ class hardwareControl:
     diffRot = destRot - currentRot
 
 
-    def Send(self, inputString):
+    def send(self, inputString):
         bus.write_byte_data(addr, 0 , ord('<'))
         time.sleep(.001)
         for c in inputString:
@@ -50,14 +50,10 @@ class hardwareControl:
     def move(self, x, y):
         #This is where the encoder calculation is going
 
-
-
-
-
-
         inputString = "drive,-30,-30,-30,-30,10000"
-        Send(inputString)
-    def grabberMove(logic):
+        self.send(inputString)
+
+    def grabberMove(self, logic):
         global grabber_Move_Flag
         if(grabber_Move_Flag):
             inputString = "moveGrabber,2000,0"
@@ -65,10 +61,10 @@ class hardwareControl:
         else:
             inputString = "moveGrabber,2000,1"
             grabber_Move_Flag = False
-        Send(inputString)
+        send(inputString)
 
 
-    def runGrabber(logic):
+    def runGrabber(self, logic):
         global grabber_Run_Flag
         if(grabber_Run_Flag):
             inputString = "runGrabber,2000,{}".format(logic)
@@ -77,7 +73,7 @@ class hardwareControl:
         else:
             inputString = "runGrabber,2000,1"
             grabber_Run_Flag = False
-        Send(inputString)
+        send(inputString)
 
 
 #Main instructions
