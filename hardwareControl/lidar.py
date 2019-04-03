@@ -6,9 +6,8 @@ from tfmini import TFmini
 
 
 class lidarControl:
-    def __init__(self):
-        tf = TFmini('/dev/ttyS0', mode=TFmini.STD_MODE)
-        print('INFO: Lidar init done');
+    tf = TFmini('/dev/ttyS0', mode=TFmini.STD_MODE)
+    print('INFO: Lidar init done');
 
     #f=open("lidarDump.txt",a)
 
