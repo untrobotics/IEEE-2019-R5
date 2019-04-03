@@ -1,9 +1,10 @@
+from folder import file
+import time
+import math
 
+lidar = file.lidarControl()
 
-
-lidar = lidarControl()
-
-controller = hardwareControl()
+controller = file.hardwareControl()
 
 
 print(lidar.getReading());
