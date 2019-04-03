@@ -25,3 +25,7 @@ class lidarControl:
     def __del__(self):
         self.tf.close()
         #f.close()
+
+
+lidarObj = lidar.lidarControl()
+print(lidarObj.getReading());
