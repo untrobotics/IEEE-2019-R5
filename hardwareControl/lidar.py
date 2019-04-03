@@ -27,5 +27,5 @@ class lidarControl:
         #f.close()
 
 
-lidarObj = lidar.lidarControl()
+lidarObj = lidarControl()
 print(lidarObj.getReading());
