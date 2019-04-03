@@ -38,13 +38,13 @@ class hardwareControl:
 
 
     def send(self, inputString):
-        bus.write_byte_data(addr, 0 , ord('<'))
+        self.bus.write_byte_data(self.addr, 0 , ord('<'))
         time.sleep(.001)
         for c in inputString:
-            bus.write_byte_data(addr, 0, ord(c))
+            self.bus.write_byte_data(self.addr, 0, ord(c))
             time.sleep(.001)
 
-        bus.write_byte_data(addr, 0 , ord('>'))
+        self.bus.write_byte_data(self.addr, 0 , ord('>'))
         time.sleep(.001)
 
     def move(self, x, y):
@@ -61,7 +61,7 @@ class hardwareControl:
         else:
             inputString = "moveGrabber,2000,1"
             grabber_Move_Flag = False
-        send(inputString)
+        self.send(inputString)
 
 
     def runGrabber(self, logic):
@@ -73,7 +73,7 @@ class hardwareControl:
         else:
             inputString = "runGrabber,2000,1"
             grabber_Run_Flag = False
-        send(inputString)
+        self.send(inputString)
 
 
 #Main instructions
