@@ -64,7 +64,7 @@ class hardwareControl:
         self.send(inputString)
 
     def pickupBlock(self):
-        # get flush
+        # get flush -- ignore for now
         # drive X distance
         # translate left until block is out of view
         # translate right from block detected to half block

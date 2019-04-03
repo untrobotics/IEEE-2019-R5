@@ -1,4 +1,5 @@
-from folder import file
+import hardwareControl.py
+import
 import time
 import math
 

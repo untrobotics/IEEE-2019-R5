@@ -5,14 +5,12 @@ from tfmini_library import TFmini
 # create the sensor and give it a port and (optional) operating mode
 
 
-def lidarControl:
+class lidarControl:
     def __init__(self):
         tf = TFmini('/dev/ttyS0', mode=TFmini.STD_MODE)
         print('INFO: Lidar init done');
 
     #f=open("lidarDump.txt",a)
-
-
 
     def getReading(self):
         d = self.tf.read()
