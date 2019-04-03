@@ -37,7 +37,7 @@ class hardwareControl:
     diffRot = destRot - currentRot
 
 
-    def Send(inputString):
+    def Send(self, inputString):
         bus.write_byte_data(addr, 0 , ord('<'))
         time.sleep(.001)
         for c in inputString:
@@ -47,7 +47,7 @@ class hardwareControl:
         bus.write_byte_data(addr, 0 , ord('>'))
         time.sleep(.001)
 
-    def move(x, y):
+    def move(self, x, y):
         #This is where the encoder calculation is going
 
 
