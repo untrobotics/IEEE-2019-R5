@@ -120,9 +120,8 @@ class TFmini(object):
         if isinstance(ret, list):
     	    if ret[0] > 12.0 or ret[0] < 0.3:
                 ret = None
-            else:
-                if ret > 12.0 or ret < 0.3:
-                    ret = None
+            else if ret > 12.0 or ret < 0.3:
+                ret = None
 
         return ret
 
