@@ -16,6 +16,8 @@ else:
     NUMOFOBS = 15
 
 
+
+
 lidarObj = lidar.lidarControl()
 
 controller = file.hardwareControl(lidarObj)
@@ -27,9 +29,26 @@ print(lidarObj.getReading());
 
 
 # 360 scan
+    # detect objects
+    # MAYBE: openCV
 
-# pathfinding
+# for each block
+    # make path
 
-# nav to 1st block
+    # nav to 1st block
 
-# pickup block
+    # pickup block procedure
+
+# make path to mothership
+
+# drop blocks off
+    # line up with first bin
+
+    # foreach block
+        #line up bin
+
+        # drop block
+
+        # move left
+
+# RTH
