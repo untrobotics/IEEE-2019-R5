@@ -1,6 +1,8 @@
 from __future__ import division, print_function
 import time
 from tfmini import TFmini
+from serial import Serial
+
 
 # create the sensor and give it a port and (optional) operating mode
 

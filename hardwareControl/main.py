@@ -1,5 +1,7 @@
+from serial import Serial
+
 from hardwareControl.lidar import lidarControl
-#from hardwareControl.hardwareControl import hardwareControl
+from hardwareControl.hardwareControl import hardwareControl
 import time
 import math
 
