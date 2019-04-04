@@ -20,7 +20,9 @@ class lidarControl(object):
 
     def getTFminiData(self):
         count = self.ser.in_waiting
+        print('Test2')
         if count > 8:
+            print('Test3')
             recv = self.ser.read(9)
             self.ser.reset_input_buffer()
             # type(recv), 'str' in python2(recv[0] = 'Y'), 'bytes' in python3(recv[0] = 89)
