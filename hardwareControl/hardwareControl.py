@@ -31,7 +31,7 @@ class hardwareControl:
 
     encoderCorrection = 155 #correction value for the encoder
 
-    moveGrabberUptime = 2200 #time to move grabber up and down consistently 
+    moveGrabberUptime = 2200 #time to move grabber up and down consistently
     moveGrabberDowntime = 1900
     Vd = 100#Desired Speed
 
@@ -43,6 +43,7 @@ class hardwareControl:
 
     #Then reference the data to get distance/difference values
 
+<<<<<<< HEAD
     def readandMove(self):
         print("READ")
         f = open("path.txt",'r') #opening the file pointer to read from 
@@ -50,6 +51,13 @@ class hardwareControl:
 
         for line in f: #gets each line in file 
             print("LOOP")
+=======
+    def readData(self):
+        f = open("path.txt",'r') #opening the file pointer to read from
+        lines = f.readlines() #reads all of the lines from file
+
+        for i, line in enumerate(lines): #gets each line in file
+>>>>>>> 0ce8e7a41f52bcfd3f777866db1da356ad412f0d
             commands = line.split(",")
             self.rotation(self, commands[2])
             time.sleep(.5)
@@ -79,6 +87,7 @@ class hardwareControl:
 
     def drive(self, x, y):
         global distance
+<<<<<<< HEAD
         global encoderCorrection 
         self.distance = math.sqrt((pow((float(x)-self.currentX),2)) + (pow((float(y)-self.currentY),2))) #this should give us a distance to travel
         self.distance *= self.encoderCorrection #change the encoder value 
@@ -98,6 +107,18 @@ class hardwareControl:
         print((self.Angle))
 
 
+=======
+        global encoderCorrection
+        self.distance = math.sqrt((pow((x-self.currentX),2)) + (pow((y-self.currentY),2))) #this should give us a distance to travel
+        self.distance *= self.encoderCorrection #change the encoder value
+
+#set v value
+
+        self.V1 = 30
+        self.V2 = 30
+        self.V3 = 30
+        self.V4 = 30
+>>>>>>> 0ce8e7a41f52bcfd3f777866db1da356ad412f0d
 
        # self.V1 = self.Vd*(math.cos(self.Angle - (math.pi/4)))
         #self.V2 = self.Vd*(math.sin(self.Angle - (math.pi/4)))
@@ -126,7 +147,7 @@ class hardwareControl:
         if(logic == 1): #Moves the grabber up
             if(self.MoveFlag == 0):
                 inputString = "moveGrabber,{},1".format(self.moveGrabberUptime)
-                self.MoveFlag = 1             
+                self.MoveFlag = 1
                 self.send(self,inputString)
             else:
                print ("Don't do that shit")
@@ -155,13 +176,13 @@ class hardwareControl:
         #self.distance = 2000
         # get flush
         # drive X distance
-        #get lidar distance 
-        #self.drive(self,0,12) #move the bot a certain amount towards the block 
+        #get lidar distance
+        #self.drive(self,0,12) #move the bot a certain amount towards the block
         # translate left until block is out of view
        # while(#return Value < self.lidar.read() || ):
-        #self.drive(self,-.5,0) #drive the bot left until we read a far distance 
+        #self.drive(self,-.5,0) #drive the bot left until we read a far distance
        # time.sleep(.5)
-        
+
        # while(#return value  == self.lidar.read()):
         #self.drive(self,.5,0)
         #self.distance += .5
@@ -180,31 +201,36 @@ class hardwareControl:
         time.sleep(2.5)
         # translate right from block detected to half block
         #for x in (0,self.distance/2, .5): #goes back half
-         #   self.drive(self,-.5, 0) #drive back half the distance 
-         #   time.sleep(.5)       
+         #   self.drive(self,-.5, 0) #drive back half the distance
+         #   time.sleep(.5)
 
         # drive forward X distance
         #get encoder data
         #drive(self,0,(self.lidar.read()-1)) #move the rest of the distance towards the block minus 1 centimeter
 
-        # move up grabber 
+        # move up grabber
         #self.moveGrabber(self, 1) #1 should be up and will move grabber up
         # drive forward a little more
-        #self.drive(self,0,1) #drive forward 1 more centemeter to be centered on the wheel 
+        #self.drive(self,0,1) #drive forward 1 more centemeter to be centered on the wheel
         # lower grabber and turn on grabber
         #while(self.lidar.read() <= 5): #wile we are reading something in front loop these controls
-         #   runGrabber(self, 1) #start the grabber wheel 
-          #  moveGrabber(self,0) #move the grabber down 
-           # time.sleep(2) #give it time to pick up 
-           # moveGrabber(self,1) #move the grabber up to see if we got the block 
+         #   runGrabber(self, 1) #start the grabber wheel
+          #  moveGrabber(self,0) #move the grabber down
+           # time.sleep(2) #give it time to pick up
+           # moveGrabber(self,1) #move the grabber up to see if we got the block
         # check if block picked up
-    
+
 
 #Main instructions
 #Here is where we will recieve our vector of commands
 #vector from C++ Loaded here
 
 test = hardwareControl
+<<<<<<< HEAD
 #test.readandMove(test) #getting data from file
 
 test.pickupBlock(test)
+=======
+test.readData(test)
+test.pickupBlock(test)
+>>>>>>> 0ce8e7a41f52bcfd3f777866db1da356ad412f0d
