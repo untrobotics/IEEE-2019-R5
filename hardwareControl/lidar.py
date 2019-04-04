@@ -1,19 +1,23 @@
-# -*- coding: utf-8 -*
-import serial
+from __future__ import division, print_function
 import time
+from tfmini_library import TFmini
+from serial import *
 
+# create the sensor and give it a port and (optional) operating mode
+tf = TFmini('/dev/ttyS0', mode=TFmini.STD_MODE)
 
 class lidarControl(object):
-    ser = serial.Serial("/dev/ttyS0", 115200)
+    d = tf.read()
     # ser = serial.Serial("COM12", 115200)
     print('INFO: Lidar init done')
 
     #f=open("lidarDump.txt",a)
 
     def getReading(self):
-        if self.ser.is_open == False:
-            self.ser.open()
-        self.getTFminiData()
+        if self.d:
+            return self.d[0]
+        else:
+            print('No valid response')
 
         if self.ser != None:
             self.ser.close()
