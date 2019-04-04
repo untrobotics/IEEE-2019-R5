@@ -1,29 +1,39 @@
-from __future__ import division, print_function
+# -*- coding: utf-8 -*
+import serial
 import time
-from tfmini import TFmini
-
-
-# create the sensor and give it a port and (optional) operating mode
 
 
 class lidarControl:
-    tf = TFmini('/dev/ttyS0', mode=TFmini.STD_MODE)
+    ser = serial.Serial("/dev/ttyS0", 115200)
     print('INFO: Lidar init done');
 
     #f=open("lidarDump.txt",a)
 
     def getReading(self):
-        d = self.tf.read()
-        if d:
-            #f.write('Distance: {:5}, Strength: {:5}'.format(d[0],d[1]))
-            return d[0]
-            #print('Distance: {:5}, Strength: {:5}'.format(d[0], d[1]))
-        else:
-            print('INFO: Lidar no valid response')
+        if self.ser.is_open == False:
+            self.ser.open()
+        self.getTFminiData(self)
+
+        if self.ser != None:
+            self.ser.close()
+
+    def getTFminiData(self):
+        count = self.ser.in_waiting
+        if count > 8:
+            recv = self.ser.read(9)
+            self.ser.reset_input_buffer()
+            # type(recv), 'str' in python2(recv[0] = 'Y'), 'bytes' in python3(recv[0] = 89)
+            # type(recv[0]), 'str' in python2, 'int' in python3
+
+            if recv[0] == 0x59 and recv[1] == 0x59:     #python3
+                distance = recv[2] + recv[3] * 256
+                strength = recv[4] + recv[5] * 256
+                print('(', distance, ',', strength, ')')
+                self.ser.reset_input_buffer()
 
 
     def __del__(self):
-        self.tf.close()
+        self.ser.close()
         #f.close()
 
 
