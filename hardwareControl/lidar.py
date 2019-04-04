@@ -9,7 +9,7 @@ class lidarControl:
 
     #f=open("lidarDump.txt",a)
 
-    def getReading(self):
+    def getReading():
         if self.ser.is_open == False:
             self.ser.open()
         self.getTFminiData(self)
