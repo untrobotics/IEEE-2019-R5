@@ -4,9 +4,10 @@ from tfmini_library import TFmini
 from serial import *
 
 # create the sensor and give it a port and (optional) operating mode
-tf = TFmini('/dev/ttyS0', mode=TFmini.STD_MODE)
+
 
 class lidarControl(object):
+    tf = TFmini('/dev/ttyS0', mode=TFmini.STD_MODE)
     d = tf.read()
     # ser = serial.Serial("COM12", 115200)
     print('INFO: Lidar init done')
