@@ -9,7 +9,7 @@ class lidarControl:
 
     #f=open("lidarDump.txt",a)
 
-    def getReading():
+    def getReading(self):
         if self.ser.is_open == False:
             self.ser.open()
         self.getTFminiData(self)
@@ -17,7 +17,7 @@ class lidarControl:
         if self.ser != None:
             self.ser.close()
 
-    def getTFminiData(self):
+    def getTFminiData(self, empty):
         count = self.ser.in_waiting
         if count > 8:
             recv = self.ser.read(9)
