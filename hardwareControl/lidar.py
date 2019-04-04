@@ -16,6 +16,7 @@ class lidarControl:
 
         if self.ser != None:
             self.ser.close()
+            
 
     def getTFminiData(self, empty):
         count = self.ser.in_waiting
