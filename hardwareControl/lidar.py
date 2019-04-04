@@ -1,6 +1,6 @@
 from __future__ import division, print_function
 import time
-from pi-lidar.tfmini_library import TFmini
+from hardwareControl.tfmini_library import TFmini
 from serial import *
 
 # create the sensor and give it a port and (optional) operating mode
