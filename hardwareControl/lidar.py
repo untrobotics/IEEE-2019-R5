@@ -16,9 +16,9 @@ class lidarControl:
 
         if self.ser != None:
             self.ser.close()
-            
 
-    def getTFminiData(self, empty):
+
+    def getTFminiData(self):
         count = self.ser.in_waiting
         if count > 8:
             recv = self.ser.read(9)
@@ -39,4 +39,4 @@ class lidarControl:
 
 
 lidarObj = lidarControl()
-print(lidarObj.getReading());
+print(lidarObj.getReading(lidarObj));
