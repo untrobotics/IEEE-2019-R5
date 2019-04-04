@@ -6,7 +6,7 @@ from serial import *
 # create the sensor and give it a port and (optional) operating mode
 tf = TFmini('/dev/ttyS0', mode=TFmini.STD_MODE)
 
-f=open("lidarDump.txt",a)
+f=open("lidarDump.txt")
 
 print('init done');
 
