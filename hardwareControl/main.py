@@ -1,5 +1,3 @@
-from serial import Serial
-
 from hardwareControl.lidar import lidarControl
 from hardwareControl.hardwareControl import hardwareControl
 import time
@@ -7,7 +5,7 @@ import math
 
 lidarObj = lidar.lidarControl()
 
-#controller = file.hardwareControl()
+controller = file.hardwareControl(lidarObj)
 
 
 print(lidarObj.getReading());
