@@ -3,7 +3,7 @@ import serial
 import time
 
 
-class lidarControl:
+class lidarControl(object):
     ser = serial.Serial("/dev/ttyS0", 115200)
     print('INFO: Lidar init done');
 
@@ -12,7 +12,7 @@ class lidarControl:
     def getReading(self):
         if self.ser.is_open == False:
             self.ser.open()
-        self.getTFminiData(self)
+        self.getTFminiData()
 
         if self.ser != None:
             self.ser.close()
@@ -39,4 +39,4 @@ class lidarControl:
 
 
 lidarObj = lidarControl()
-print(lidarObj.getReading(lidarObj));
+print(lidarObj.getReading());
