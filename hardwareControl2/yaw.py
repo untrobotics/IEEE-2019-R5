@@ -26,7 +26,7 @@ import time
 
 
 def getYaw():
-    p = 0;
+    angle = 0;
     power_mgmt_1 = 0x6b
     power_mgmt_2 = 0x6c
 
@@ -67,21 +67,24 @@ def getYaw():
     gyroskop_yout = lesen_wort_2c(0x45)
     gyroskop_zout = lesen_wort_2c(0x47)
 
-    roll_raw = lesen_wort_2c(0x43)
-    roll = roll_raw / 131
-    print("ROLL", roll)
+    # roll_raw = lesen_wort_2c(0x43)
+    # roll = roll_raw / 131
+    # print("ROLL", roll)
 
     pitch_raw = lesen_wort_2c(0x45)
     pitch = pitch_raw / 131
     print("PITCH", pitch)
-    p = p + pitch
-    print("PITCH2", p)
 
-    yaw_raw = lesen_wort_2c(0x47)
-    yaw = yaw_raw / 131
-    print("YAW", yaw);
+    if abs(pitch) > 2:
+        angle = angle + pitch
 
-    return p
+    print("ANGLE: ", angle)
+
+    # yaw_raw = lesen_wort_2c(0x47)
+    # yaw = yaw_raw / 131
+    # print("YAW", yaw);
+
+    return angle
 
 
 newYaw = getYaw()

@@ -82,9 +82,24 @@ class hardwareControl:
         
         #send the command with a distance do some trig or shit
 
-    def rotate(self, angle):
-        print("LIDAR FROM HC: {}".format(self.lidarObj.getReading()))
-        print(angle)
+    def rotate(self, turnAngle):
+        startAngle = getYaw()
+        currentAngle = startAngle
+
+        if turnAngle < 0:
+            turnAngle = -turnAngle
+            inputString = "drive,{},{},{},{},{}".format(-20, -20, 20, 20, 20)
+        else:
+            inputString = "drive,{},{},{},{},{}".format(20, 20, -20, -20, 20)
+
+        while currentAngle < turnAngle:
+            currentAngle = getYaw()
+            print("Current: {}".format(currentAngle))
+
+            # spin motors for short time
+            self.send(self,inputString)
+
+
         print("GYRO: {}".format(getYaw()))
 
 
