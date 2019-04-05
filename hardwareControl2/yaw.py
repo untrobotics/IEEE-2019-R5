@@ -37,9 +37,9 @@ class yaw(object):
     # Aktivieren, um das Modul ansprechen zu koennen
     bus.write_byte_data(address, power_mgmt_1, 0)
 
-    gyroskop_xout = lesen_wort_2c(0x43)
-    gyroskop_yout = lesen_wort_2c(0x45)
-    gyroskop_zout = lesen_wort_2c(0x47)
+    # gyroskop_xout = lesen_wort_2c(0x43)
+    # gyroskop_yout = lesen_wort_2c(0x45)
+    # gyroskop_zout = lesen_wort_2c(0x47)
 
     def lesen_byte(self,reg):
         return self.bus.read_byte_data(self.address, reg)
@@ -87,6 +87,7 @@ class yaw(object):
             # smooth signal
             if abs(pitch) > 2:
                 angle = angle + pitch
+                print(-angle)
 
     def getAngle(self):
         return -self.angle
