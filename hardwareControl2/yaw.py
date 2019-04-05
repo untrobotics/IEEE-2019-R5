@@ -66,13 +66,21 @@ def getYaw():
     gyroskop_xout = lesen_wort_2c(0x43)
     gyroskop_yout = lesen_wort_2c(0x45)
     gyroskop_zout = lesen_wort_2c(0x47)
-    # roll_raw = lesen_wort_2c(0x43)
-    # roll = roll_raw / 13
+
+    roll_raw = lesen_wort_2c(0x43)
+    roll = roll_raw / 131
+    print("ROLL", roll)
 
     pitch_raw = lesen_wort_2c(0x45)
     pitch = pitch_raw / 131
-    #print("PITCH", pitch)
+    print("PITCH", pitch)
     p = p + pitch
+    print("PITCH2", p)
+
+    yaw_raw = lesen_wort_2c(0x47)
+    yaw = yaw_raw / 131
+    print("YAW", yaw);
+
     return p
 
 
