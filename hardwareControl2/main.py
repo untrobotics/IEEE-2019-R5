@@ -22,23 +22,24 @@ yawObj = yaw()
 lidarObj = lidarControl()
 controller = hardwareControl(lidarObj, yawObj)
 
-def backgroundLoop():
-    while 1:
-        yawObj.loop()
+# def backgroundLoop():
+#     while 1:
+#         yawObj.loop()
 
 
-def foreground():
+# def foreground():
     # print("LIDAR: ", lidarObj.getReading())
     # negatives not working yet
-    controller.rotate(360)
+
+controller.rotate(360)
 
 
 
-b = threading.Thread(name='background', target=backgroundLoop)
-f = threading.Thread(name='foreground', target=foreground)
-
-b.start()
-f.start()
+# b = threading.Thread(name='background', target=backgroundLoop)
+# f = threading.Thread(name='foreground', target=foreground)
+#
+# b.start()
+# f.start()
 
 #controller.move(1,2)
 
