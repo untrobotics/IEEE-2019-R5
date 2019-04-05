@@ -64,14 +64,23 @@ class hardwareControl:
             time.sleep(.5)
 
     def send(self, inputString):
-        self.bus.write_byte_data(self.addr, 0 , ord('<'))
-        time.sleep(.001)
-        for c in inputString:
-            self.bus.write_byte_data(self.addr, 0, ord(c))
-            time.sleep(.001)
+        timeout = 0
+        while timeout < 15:
+            try:
+                self.bus.write_byte_data(self.addr, 0 , ord('<'))
+                time.sleep(.001)
+                for c in inputString:
+                    self.bus.write_byte_data(self.addr, 0, ord(c))
+                    time.sleep(.001)
 
-        self.bus.write_byte_data(self.addr, 0 , ord('>'))
-        time.sleep(.001)
+                self.bus.write_byte_data(self.addr, 0 , ord('>'))
+                time.sleep(.001)
+            except:
+                print("I/O Arduino Error, timeout = ", timeout)
+                timeout += 1
+                time.sleep(.01)
+            finally:
+                print("Message sent successfully")
 
     def rotation(self, rot):
         self.destRot = float(rot) - self.currentRot
@@ -84,6 +93,7 @@ class hardwareControl:
         #send the command with a distance do some trig or shit
 
     def rotate(self, turnAngle):
+        # rotate negative angles not working, debug
         f = open("lidar1.txt", "w")
 
         startAngle = self.yawObj.getAngle()
@@ -96,7 +106,7 @@ class hardwareControl:
 
         self.send(inputString)
         c = 0
-        while currentAngle < round(turnAngle-startAngle):
+        while currentAngle < round(abs(turnAngle)-startAngle):
             lastAngle = currentAngle
             currentAngle = round(self.yawObj.getAngle()-startAngle)
 
@@ -117,6 +127,7 @@ class hardwareControl:
         print("INFO: Done rotating, current angle = ", currentAngle)
         inputString = "drive,{},{},{},{},{}".format(0, 0, 0, 0, 500)
         self.send(inputString)
+
         f.close()
 
         print("GYRO: {}".format(self.yawObj.getAngle()))
