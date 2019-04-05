@@ -22,8 +22,9 @@ yawObj = yaw()
 print(yawObj.getAngle())
 
 def backgroundLoop():
-    yawObj.loop()
-    print(yawObj.getAngle())
+    while 1:
+        yawObj.loop()
+        #print("Thread 2: ", yawObj.getAngle())
 
 def foreground():
     time.sleep(5)
