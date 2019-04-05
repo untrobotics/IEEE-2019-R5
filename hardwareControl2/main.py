@@ -25,12 +25,12 @@ def backgroundLoop():
     yawObj.loop()
 
 def foreground():
-    time.sleep(3)
+    time.sleep(5)
 
-    print("TEST", yawObj.getAngle())
+    print("TEST: ", yawObj.getAngle())
     lidarObj = lidarControl()
 
-    print(lidarObj.getReading());
+    print("LIDAR: ", lidarObj.getReading())
 
     controller = hardwareControl(lidarObj, yawObj)
 
