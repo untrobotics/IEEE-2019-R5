@@ -4,9 +4,13 @@
 import time
 import math
 import smbus
+from lidar import lidarControl
 
 
 class hardwareControl:
+
+    def __init__(self, lidarObj):
+        self.lidarObj = lidarObj
 
     distance = 0
 
@@ -76,6 +80,11 @@ class hardwareControl:
             self.V4 = 20
         
         #send the command with a distance do some trig or shit
+
+    def rotate(self, angle):
+        print("LIDAR FROM HC: " + self.lidarObj.getReading())
+        print(angle)
+
 
 
     def drive(self, x, y):
@@ -204,10 +213,10 @@ class hardwareControl:
 #Here is where we will recieve our vector of commands
 #vector from C++ Loaded here
 
-test = hardwareControl
+#test = hardwareControl
 
 #test.readandMove(test) #getting data from file
 
-test.pickupBlock(test)
+#test.pickupBlock(test)
 
 
