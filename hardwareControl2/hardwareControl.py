@@ -16,7 +16,7 @@ class hardwareControl:
 
     distance = 0
 
-    addr = 0x8 # bus address
+    addr = 0x08 # bus address
     bus = smbus.SMBus(1) # indicates /dev/ic2-1
 
     MoveFlag = 0 # Zero is the down state, 1 is the up state
@@ -99,7 +99,7 @@ class hardwareControl:
                 inputString = "drive,{},{},{},{},{}".format(30, 30, -30, -30, 300)
 
             self.send(inputString)
-            time.sleep(.1)
+            time.sleep(1)
 
         inputString = "drive,{},{},{},{},{}".format(0, 0, 0, 0, 500)
         self.send(inputString)
