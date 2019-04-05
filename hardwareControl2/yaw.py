@@ -24,9 +24,9 @@ import time
 #print "gyroskop_yout: ", ("%5d" % gyroskop_yout), " skaliert: ", (gyroskop_yout / 131) # pitch
 
 
-
+angle = 0;
 def getYaw():
-    angle = 0;
+
     power_mgmt_1 = 0x6b
     power_mgmt_2 = 0x6c
 
