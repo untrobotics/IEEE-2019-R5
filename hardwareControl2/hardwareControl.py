@@ -95,13 +95,13 @@ class hardwareControl:
 
         self.send(inputString)
         c = 0
-        while round(currentAngle) < round(turnAngle):
-            currentAngle = self.yawObj.getAngle()-startAngle
-            if (c%100 == 0):
+        while currentAngle < round(turnAngle):
+            currentAngle = round(self.yawObj.getAngle()-startAngle)
+            if (c % 10000 == 0):
                 print(currentAngle)
-            if (c==20000):
-                c=0
-            c+=1
+            if (c == 20000):
+                c = 0
+            c += 1
 
 
         print("INFO: Done rotating, current angle = ", currentAngle)
