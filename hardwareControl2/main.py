@@ -34,6 +34,7 @@ def foreground():
 
 
 
+
 b = threading.Thread(name='background', target=backgroundLoop)
 f = threading.Thread(name='foreground', target=foreground)
 
