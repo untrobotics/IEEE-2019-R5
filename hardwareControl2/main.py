@@ -21,10 +21,10 @@ else:
 yawObj = yaw()
 print(yawObj.getAngle())
 
-def loop():
+def backgroundLoop():
     yawObj.loop()
 
-def forground():
+def foreground():
     time.sleep(3)
 
     print("TEST", yawObj.getAngle())
@@ -38,7 +38,7 @@ def forground():
 
 
 
-b = threading.Thread(name='background', target=loop)
+b = threading.Thread(name='background', target=backgroundLoop)
 f = threading.Thread(name='foreground', target=foreground)
 
 b.start()
