@@ -43,7 +43,6 @@ class hardwareControl:
 
     #Then reference the data to get distance/difference values
 
-<<<<<<< HEAD
     def readandMove(self):
         print("READ")
         f = open("path.txt",'r') #opening the file pointer to read from 
@@ -51,13 +50,7 @@ class hardwareControl:
 
         for line in f: #gets each line in file 
             print("LOOP")
-=======
-    def readData(self):
-        f = open("path.txt",'r') #opening the file pointer to read from
-        lines = f.readlines() #reads all of the lines from file
 
-        for i, line in enumerate(lines): #gets each line in file
->>>>>>> 0ce8e7a41f52bcfd3f777866db1da356ad412f0d
             commands = line.split(",")
             self.rotation(self, commands[2])
             time.sleep(.5)
@@ -87,7 +80,7 @@ class hardwareControl:
 
     def drive(self, x, y):
         global distance
-<<<<<<< HEAD
+
         global encoderCorrection 
         self.distance = math.sqrt((pow((float(x)-self.currentX),2)) + (pow((float(y)-self.currentY),2))) #this should give us a distance to travel
         self.distance *= self.encoderCorrection #change the encoder value 
@@ -106,20 +99,6 @@ class hardwareControl:
         
         print((self.Angle))
 
-
-=======
-        global encoderCorrection
-        self.distance = math.sqrt((pow((x-self.currentX),2)) + (pow((y-self.currentY),2))) #this should give us a distance to travel
-        self.distance *= self.encoderCorrection #change the encoder value
-
-#set v value
-
-        self.V1 = 30
-        self.V2 = 30
-        self.V3 = 30
-        self.V4 = 30
->>>>>>> 0ce8e7a41f52bcfd3f777866db1da356ad412f0d
-
        # self.V1 = self.Vd*(math.cos(self.Angle - (math.pi/4)))
         #self.V2 = self.Vd*(math.sin(self.Angle - (math.pi/4)))
         #self.V3 = self.Vd*(math.sin(self.Angle - (math.pi/4)))
@@ -135,7 +114,7 @@ class hardwareControl:
         print("drive,{},{},{},{},{}".format(round(self.V1, 3),round(self.V2,3),round(self.V3,3),round(self.V4,3),int(round(self.distance,3))))
 
         inputString = "drive,{},{},{},{},{}".format(round(self.V1, 3),round(self.V2,3),round(self.V3,3),round(self.V4,3),int(round(self.distance,3)))
-        self.send(self,inputString)
+       # self.send(self,inputString)
 
         self.currentX = float(x)
         self.currentY = float(y)
@@ -226,11 +205,9 @@ class hardwareControl:
 #vector from C++ Loaded here
 
 test = hardwareControl
-<<<<<<< HEAD
+
 #test.readandMove(test) #getting data from file
 
 test.pickupBlock(test)
-=======
-test.readData(test)
-test.pickupBlock(test)
->>>>>>> 0ce8e7a41f52bcfd3f777866db1da356ad412f0d
+
+
