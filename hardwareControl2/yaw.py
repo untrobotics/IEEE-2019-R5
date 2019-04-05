@@ -86,7 +86,7 @@ def getYaw():
     # print("YAW", yaw);
 
     # yaw is backwards
-    return -angle
+    return -pitch
 
 
 newYaw = getYaw()
