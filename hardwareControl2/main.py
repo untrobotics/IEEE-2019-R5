@@ -23,6 +23,7 @@ print(yawObj.getAngle())
 
 def backgroundLoop():
     yawObj.loop()
+    print(yawObj.getAngle())
 
 def foreground():
     time.sleep(5)
