@@ -85,11 +85,11 @@ class hardwareControl:
 
     def rotate(self, turnAngle):
 
-        startAngle = self.yawObj.getYaw()
+        startAngle = self.yawObj.getAngle()
         currentAngle = startAngle
 
         while round(currentAngle) < round(turnAngle):
-            currentAngle = self.yawObj.getYaw()-startAngle
+            currentAngle = self.yawObj.getAngle()-startAngle
             print("{} < {}".format(round(currentAngle), round(turnAngle)))
 
             # spin motors for short time
@@ -102,7 +102,7 @@ class hardwareControl:
             time.sleep(.01)
 
 
-        print("GYRO: {}".format(getYaw()))
+        print("GYRO: {}".format(self.yawObj.getAngle()))
 
 
 

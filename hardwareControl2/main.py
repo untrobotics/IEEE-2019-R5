@@ -18,7 +18,11 @@ else:
     NUMOFOBS = 15
 
 
+
 yawObj = yaw()
+
+while 1:
+    yawObj.getAngle()
 
 lidarObj = lidarControl()
 
