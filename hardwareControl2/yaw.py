@@ -70,7 +70,7 @@ class yaw(object):
 
     c = 0
     def loop(self):
-        # make the while loop less intensive
+        # make the while loop less intensive, increase 200000 to slow down
         self.c += 1
         if self.c == 20000:
             self.c = 0
@@ -83,7 +83,6 @@ class yaw(object):
             # smooth signal
             if abs(pitch) > 2:
                 self.angle = self.angle + pitch
-                print(-self.angle)
 
     # roll_raw = lesen_wort_2c(0x43)
     # roll = roll_raw / 131
@@ -91,7 +90,7 @@ class yaw(object):
 
 
     def getAngle(self):
-        return -self.angle
+        return -round(self.angle/300000*360)
 
     # print("ANGLE: ", angle)
 
