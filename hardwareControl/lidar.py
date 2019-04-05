@@ -1,6 +1,6 @@
 from __future__ import division, print_function
 import time
-from tfmini_library import TFmini
+from hardwareControl.tfmini_library import TFmini
 from serial import *
 
 # create the sensor and give it a port and (optional) operating mode
@@ -12,7 +12,7 @@ class lidarControl(object):
     # ser = serial.Serial("COM12", 115200)
     print('INFO: Lidar init done')
 
-    #f=open("lidarDump.txt",a)
+    # f=open("lidarDump.txt",a)
 
     def getReading(self):
         if self.d:
@@ -20,10 +20,9 @@ class lidarControl(object):
         else:
             print('No valid response')
 
-
     def __del__(self):
-        tf.close()
-        #f.close()
+        self.tf.close()
+        # f.close()
 
 
 lidarObj = lidarControl()
