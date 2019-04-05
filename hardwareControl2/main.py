@@ -29,7 +29,7 @@ def backgroundLoop():
 
 def foreground():
     # print("LIDAR: ", lidarObj.getReading())
-    controller.rotate(360)
+    controller.rotate(-360)
 
 
 
