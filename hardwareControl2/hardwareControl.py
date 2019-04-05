@@ -91,11 +91,11 @@ class hardwareControl:
             print("Current: {}".format(currentAngle))
 
             # spin motors for short time
-            if turnAngle < 0:
+            if turnAngle > 0:
                 turnAngle = -turnAngle
-                inputString = "drive,{},{},{},{},{}".format(-30, -30, 30, 30, 100)
+                inputString = "drive,{},{},{},{},{}".format(-30, -30, 30, 30, 50)
             else:
-                inputString = "drive,{},{},{},{},{}".format(30, 30, -30, -30, 100)
+                inputString = "drive,{},{},{},{},{}".format(30, 30, -30, -30, 50)
 
             self.send(inputString)
             time.sleep(.01)
