@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="270fbd6b-29bb-4a32-a649-fd567be771fc" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/hardwareControl2/hardwareControl.py" beforeDir="false" afterPath="$PROJECT_DIR$/hardwareControl2/hardwareControl.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hardwareControl2/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/hardwareControl2/main.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -16,8 +15,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/hardwareControl2/hardwareControl.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="311">
-              <caret line="96" column="80" selection-start-line="96" selection-start-column="80" selection-end-line="96" selection-end-column="80" />
+            <state relative-caret-position="464">
+              <caret line="102" lean-forward="true" selection-start-line="102" selection-end-line="102" />
               <folding>
                 <element signature="e#165#176#0" expanded="true" />
               </folding>
@@ -157,12 +156,12 @@
       <option name="presentableId" value="Default" />
       <updated>1554423867952</updated>
       <workItem from="1554423869321" duration="771000" />
-      <workItem from="1554424804029" duration="12525000" />
+      <workItem from="1554424804029" duration="12875000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="13296000" />
+    <option name="totallyTimeSpent" value="13646000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="824" extended-state="6" />
@@ -295,8 +294,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/hardwareControl2/hardwareControl.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="311">
-          <caret line="96" column="80" selection-start-line="96" selection-start-column="80" selection-end-line="96" selection-end-column="80" />
+        <state relative-caret-position="464">
+          <caret line="102" lean-forward="true" selection-start-line="102" selection-end-line="102" />
           <folding>
             <element signature="e#165#176#0" expanded="true" />
           </folding>

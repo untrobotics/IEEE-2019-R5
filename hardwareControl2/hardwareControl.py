@@ -92,15 +92,17 @@ class hardwareControl:
             currentAngle = self.yawObj.getAngle()-startAngle
             print("{} < {}".format(round(currentAngle), round(turnAngle)))
 
-            # spin motors for short time
+            # pump rotate commands until done
             if turnAngle > 0:
                 inputString = "drive,{},{},{},{},{}".format(-30, -30, 30, 30, 100)
             else:
                 inputString = "drive,{},{},{},{},{}".format(30, 30, -30, -30, 100)
 
             self.send(inputString)
-            time.sleep(.01)
+            time.delay(.01)
 
+        inputString = "drive,{},{},{},{},{}".format(0, 0, 0, 0, 500)
+        self.send(inputString)
 
         print("GYRO: {}".format(self.yawObj.getAngle()))
 
