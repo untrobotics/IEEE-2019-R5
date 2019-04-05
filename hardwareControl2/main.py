@@ -2,7 +2,7 @@ from lidar import lidarControl
 from hardwareControl import hardwareControl
 from yaw import yaw
 
-from multiprocessing import Process
+import threading
 import time
 import math
 
@@ -18,25 +18,31 @@ else:
     NUMOFBLOCKS = 6
     NUMOFOBS = 15
 
-def loop():
-    yawObj.loop()
-
 yawObj = yaw()
 print(yawObj.getAngle())
 
-p1 = Process(target=loop)
-p1.start()
+def loop():
+    yawObj.loop()
 
-time.sleep(3)
+def forground():
+    time.sleep(3)
 
-print("TEST", yawObj.getAngle())
-lidarObj = lidarControl()
+    print("TEST", yawObj.getAngle())
+    lidarObj = lidarControl()
 
-print(lidarObj.getReading());
+    print(lidarObj.getReading());
 
-controller = hardwareControl(lidarObj, yawObj)
+    controller = hardwareControl(lidarObj, yawObj)
 
-controller.rotate(360)
+    controller.rotate(360)
+
+
+
+b = threading.Thread(name='background', target=loop)
+f = threading.Thread(name='foreground', target=foreground)
+
+b.start()
+f.start()
 
 #controller.move(1,2)
 
