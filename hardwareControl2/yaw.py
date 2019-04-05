@@ -77,7 +77,7 @@ class yaw(object):
         if self.c == 20000:
             self.c = 0
 
-        if self.c % 1500 == 0:
+        if self.c % 2000 == 0:
             try:
                 pitch_raw = self.lesen_wort_2c(0x45)
             except:
@@ -96,7 +96,7 @@ class yaw(object):
 
     # change 300000 to adjust angle, higher less spin
     def getAngle(self):
-        return -round(self.angle/300000*360)
+        return -round(self.angle/200000*360)
 
     # print("ANGLE: ", angle)
 
