@@ -89,9 +89,6 @@ class yaw(object):
     # roll = roll_raw / 131
     # print("ROLL", roll)
 
-    while 1:
-        loop()
-
 
     def getAngle(self):
         return -self.angle
