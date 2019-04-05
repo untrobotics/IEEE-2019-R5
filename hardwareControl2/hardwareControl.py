@@ -99,6 +99,7 @@ class hardwareControl:
             currentAngle = self.yawObj.getAngle()-startAngle
 
 
+        print("INFO: Done rotating, current angle = ", currentAngle)
         inputString = "drive,{},{},{},{},{}".format(0, 0, 0, 0, 500)
         self.send(inputString)
 
