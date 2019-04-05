@@ -89,7 +89,7 @@ class hardwareControl:
 
         while currentAngle < abs(turnAngle)+abs(startAngle):
             currentAngle += getYaw()
-            print("Current: {}".format(currentAngle))
+            print("{} < {}".format(currentAngle, abs(turnAngle)+abs(startAngle)))
 
             # spin motors for short time
             if turnAngle > 0:
