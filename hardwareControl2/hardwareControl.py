@@ -96,7 +96,7 @@ class hardwareControl:
 
         self.send(inputString)
         c = 0
-        while currentAngle < round(turnAngle-startAngle-15):
+        while currentAngle < round(turnAngle-startAngle):
             lastAngle = currentAngle
             currentAngle = round(self.yawObj.getAngle()-startAngle)
 
