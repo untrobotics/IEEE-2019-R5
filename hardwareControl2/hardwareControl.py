@@ -97,12 +97,17 @@ class hardwareControl:
         self.send(inputString)
         c = 0
         while currentAngle < round(turnAngle-startAngle-15):
+            lastAngle = currentAngle
             currentAngle = round(self.yawObj.getAngle()-startAngle)
-            if (c % 10000 == 0):
-                print(currentAngle, " < ", round(turnAngle-startAngle))
-            if (c == 200000):
-                c = 0
-            c += 1
+
+            if (currentAngle != lastAngle):
+                print(currentAngle, ",", self.lidarObj.getReading())
+
+            # if (c % 10000 == 0):
+            #     print(currentAngle, " < ", round(turnAngle-startAngle))
+            # if (c == 200000):
+            #     c = 0
+            # c += 1
 
 
         print("INFO: Done rotating, current angle = ", currentAngle)
