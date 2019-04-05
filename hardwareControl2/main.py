@@ -23,15 +23,13 @@ lidarObj = lidarControl()
 controller = hardwareControl(lidarObj, yawObj)
 
 def backgroundLoop():
-    yawObj.version = 10
     while 1:
         yawObj.loop()
 
 
 def foreground():
-    print("LIDAR: ", lidarObj.getReading())
-    time.sleep(4)
-    print("VERSION: ",yawObj.version)
+    # print("LIDAR: ", lidarObj.getReading())
+    time.sleep(2)
     controller.rotate(360)
 
 

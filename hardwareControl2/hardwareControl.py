@@ -94,9 +94,9 @@ class hardwareControl:
 
             # spin motors for short time
             if turnAngle > 0:
-                inputString = "drive,{},{},{},{},{}".format(-30, -30, 30, 30, 50)
+                inputString = "drive,{},{},{},{},{}".format(-30, -30, 30, 30, 100)
             else:
-                inputString = "drive,{},{},{},{},{}".format(30, 30, -30, -30, 50)
+                inputString = "drive,{},{},{},{},{}".format(30, 30, -30, -30, 100)
 
             self.send(inputString)
             time.sleep(.01)
