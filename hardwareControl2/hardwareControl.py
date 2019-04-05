@@ -97,8 +97,6 @@ class hardwareControl:
 
         while round(currentAngle) < round(turnAngle):
             currentAngle = self.yawObj.getAngle()-startAngle
-            print("{} < {}".format(round(currentAngle), round(turnAngle)))
-
 
 
         inputString = "drive,{},{},{},{},{}".format(0, 0, 0, 0, 500)
