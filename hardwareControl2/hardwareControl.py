@@ -84,11 +84,12 @@ class hardwareControl:
 
     def rotate(self, turnAngle):
 
-        startAngle = getYaw
+        startAngle = getYaw()
+        currentAngle = startAngle
 
         while round(currentAngle) < round(turnAngle):
             currentAngle = getYaw()-startAngle
-            print("{} < {}".format(currentAngle, abs(turnAngle)+abs(startAngle)))
+            print("{} < {}".format(round(currentAngle), round(turnAngle))
 
             # spin motors for short time
             if turnAngle > 0:
