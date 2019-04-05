@@ -84,6 +84,7 @@ class hardwareControl:
         #send the command with a distance do some trig or shit
 
     def rotate(self, turnAngle):
+        f = open("lidar1.txt", "w")
 
         startAngle = self.yawObj.getAngle()
         currentAngle = startAngle
@@ -97,7 +98,7 @@ class hardwareControl:
         c = 0
         while currentAngle < round(turnAngle-startAngle-15):
             currentAngle = round(self.yawObj.getAngle()-startAngle)
-            if (c % 70000 == 0):
+            if (c % 10000 == 0):
                 print(currentAngle, " < ", round(turnAngle-startAngle))
             if (c == 200000):
                 c = 0
@@ -107,6 +108,7 @@ class hardwareControl:
         print("INFO: Done rotating, current angle = ", currentAngle)
         inputString = "drive,{},{},{},{},{}".format(0, 0, 0, 0, 500)
         self.send(inputString)
+        f.close()
 
         print("GYRO: {}".format(self.yawObj.getAngle()))
 
