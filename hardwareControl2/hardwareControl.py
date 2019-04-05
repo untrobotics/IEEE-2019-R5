@@ -86,8 +86,7 @@ class hardwareControl:
         startAngle = getYaw()
         currentAngle = startAngle
 
-
-        while currentAngle < abs(turnAngle)+abs(startAngle):
+        while round(currentAngle) < abs(turnAngle)+abs(startAngle):
             currentAngle += getYaw()
             print("{} < {}".format(currentAngle, abs(turnAngle)+abs(startAngle)))
 

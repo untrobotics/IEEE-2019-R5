@@ -85,7 +85,8 @@ def getYaw():
     # yaw = yaw_raw / 131
     # print("YAW", yaw);
 
-    return angle
+    # yaw is backwards
+    return -angle
 
 
 newYaw = getYaw()
