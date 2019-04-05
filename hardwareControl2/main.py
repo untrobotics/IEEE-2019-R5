@@ -18,6 +18,9 @@ else:
     NUMOFOBS = 15
 
 
+while 1:
+    print(round(getYaw()))
+
 lidarObj = lidarControl()
 
 print(lidarObj.getReading());
