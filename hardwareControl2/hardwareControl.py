@@ -88,18 +88,18 @@ class hardwareControl:
         startAngle = self.yawObj.getAngle()
         currentAngle = startAngle
 
+        if turnAngle > 0:
+            inputString = "drive,{},{},{},{},{}".format(-40, -40, 40, 40, 20000)
+        else:
+            inputString = "drive,{},{},{},{},{}".format(40, 40, -40, -40, 20000)
+
+        self.send(inputString)
+
         while round(currentAngle) < round(turnAngle):
             currentAngle = self.yawObj.getAngle()-startAngle
             print("{} < {}".format(round(currentAngle), round(turnAngle)))
 
-            # pump rotate commands until done
-            if turnAngle > 0:
-                inputString = "drive,{},{},{},{},{}".format(-40, -40, 40, 40, 2000)
-            else:
-                inputString = "drive,{},{},{},{},{}".format(40, 40, -40, -40, 2000)
 
-            self.send(inputString)
-            time.sleep(1)
 
         inputString = "drive,{},{},{},{},{}".format(0, 0, 0, 0, 500)
         self.send(inputString)
