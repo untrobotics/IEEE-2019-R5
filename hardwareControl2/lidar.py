@@ -8,15 +8,16 @@ from tfmini_library import TFmini
 class lidarControl(object):
     # 0.34
     tf = TFmini('/dev/ttyS0', mode=TFmini.STD_MODE)
-    d = tf.read()
+
     # ser = serial.Serial("COM12", 115200)
     print('INFO: Lidar init done')
 
     # f=open("lidarDump.txt",a)
 
     def getReading(self):
-        if self.d:
-            return self.d[0]
+        d = self.tf.read()
+        if d:
+            return d[0]
         else:
             print('No valid response')
 
