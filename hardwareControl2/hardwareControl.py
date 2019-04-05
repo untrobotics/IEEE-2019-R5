@@ -94,9 +94,9 @@ class hardwareControl:
 
             # pump rotate commands until done
             if turnAngle > 0:
-                inputString = "drive,{},{},{},{},{}".format(-30, -30, 30, 30, 100)
+                inputString = "drive,{},{},{},{},{}".format(-30, -30, 30, 30, 300)
             else:
-                inputString = "drive,{},{},{},{},{}".format(30, 30, -30, -30, 100)
+                inputString = "drive,{},{},{},{},{}".format(30, 30, -30, -30, 300)
 
             self.send(inputString)
             time.sleep(.1)
