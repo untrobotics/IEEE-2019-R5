@@ -1,5 +1,7 @@
 from lidar import lidarControl
 from hardwareControl import hardwareControl
+from yaw import getYaw
+
 import time
 import math
 

@@ -5,6 +5,7 @@ import time
 import math
 import smbus
 from lidar import lidarControl
+from yaw import getYaw
 
 
 class hardwareControl:
@@ -84,6 +85,7 @@ class hardwareControl:
     def rotate(self, angle):
         print("LIDAR FROM HC: {}".format(self.lidarObj.getReading()))
         print(angle)
+        print("GYRO: {}".format(getYaw()))
 
 
 
