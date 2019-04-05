@@ -72,11 +72,12 @@ class yaw(object):
     c = 0
     def loop(self):
         # make the while loop less intensive, increase 200000 to slow down
+        # I/O error here
         self.c += 1
         if self.c == 20000:
             self.c = 0
 
-        if self.c % 2000 == 0:
+        if self.c % 1500 == 0:
             try:
                 pitch_raw = self.lesen_wort_2c(0x45)
             except:
