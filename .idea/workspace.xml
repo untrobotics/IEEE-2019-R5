@@ -27,8 +27,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/hardwareControl2/yaw.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="293">
-              <caret line="39" column="41" lean-forward="true" selection-start-line="39" selection-start-column="41" selection-end-line="39" selection-end-column="41" />
+            <state relative-caret-position="541">
+              <caret line="92" column="14" lean-forward="true" selection-start-line="92" selection-start-column="14" selection-end-line="92" selection-end-column="14" />
               <folding>
                 <element signature="e#202#214#0" expanded="true" />
               </folding>
@@ -39,8 +39,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pigyro/yaw.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="709">
-              <caret line="67" selection-start-line="67" selection-end-line="67" selection-end-column="6" />
+            <state relative-caret-position="418">
+              <caret line="49" column="32" lean-forward="true" selection-start-line="49" selection-start-column="32" selection-end-line="49" selection-end-column="32" />
             </state>
           </provider>
         </entry>
@@ -79,6 +79,7 @@
       <find>inputString</find>
       <find>drive,</find>
       <find>getYaw</find>
+      <find>gyro</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -164,12 +165,12 @@
       <option name="presentableId" value="Default" />
       <updated>1554423867952</updated>
       <workItem from="1554423869321" duration="771000" />
-      <workItem from="1554424804029" duration="9240000" />
+      <workItem from="1554424804029" duration="9604000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="10011000" />
+    <option name="totallyTimeSpent" value="10375000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="824" extended-state="6" />
@@ -295,15 +296,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/pigyro/yaw.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="709">
-          <caret line="67" selection-start-line="67" selection-end-line="67" selection-end-column="6" />
+        <state relative-caret-position="418">
+          <caret line="49" column="32" lean-forward="true" selection-start-line="49" selection-start-column="32" selection-end-line="49" selection-end-column="32" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/hardwareControl2/yaw.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="293">
-          <caret line="39" column="41" lean-forward="true" selection-start-line="39" selection-start-column="41" selection-end-line="39" selection-end-column="41" />
+        <state relative-caret-position="541">
+          <caret line="92" column="14" lean-forward="true" selection-start-line="92" selection-start-column="14" selection-end-line="92" selection-end-column="14" />
           <folding>
             <element signature="e#202#214#0" expanded="true" />
           </folding>

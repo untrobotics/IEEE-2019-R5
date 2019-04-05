@@ -68,26 +68,30 @@ class yaw(object):
         radians = math.atan2(y, self.dist(x,z))
         return math.degrees(radians)
 
-
-    # roll_raw = lesen_wort_2c(0x43)
-    # roll = roll_raw / 131
-    # print("ROLL", roll)
     c = 0
-    while 1:
+    def loop(self):
         # make the while loop less intensive
-        c += 1
-        if c == 20000:
-            c = 0
+        self.c += 1
+        if self.c == 20000:
+            self.c = 0
 
-        if c % 10 == 0:
-            pitch_raw = lesen_wort_2c(0x45)
+        if self.c % 10 == 0:
+            pitch_raw = self.lesen_wort_2c(0x45)
             pitch = pitch_raw / 131
             # print("PITCH", pitch)
 
             # smooth signal
             if abs(pitch) > 2:
-                angle = angle + pitch
-                print(-angle)
+                self.angle = self.angle + pitch
+                print(-self.angle)
+
+    # roll_raw = lesen_wort_2c(0x43)
+    # roll = roll_raw / 131
+    # print("ROLL", roll)
+
+    while 1:
+        loop()
+
 
     def getAngle(self):
         return -self.angle
