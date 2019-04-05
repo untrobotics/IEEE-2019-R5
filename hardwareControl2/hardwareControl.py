@@ -99,7 +99,7 @@ class hardwareControl:
                 inputString = "drive,{},{},{},{},{}".format(30, 30, -30, -30, 100)
 
             self.send(inputString)
-            time.sleep(.01)
+            time.sleep(.1)
 
         inputString = "drive,{},{},{},{},{}".format(0, 0, 0, 0, 500)
         self.send(inputString)
