@@ -73,12 +73,13 @@ def getYaw():
 
     pitch_raw = lesen_wort_2c(0x45)
     pitch = pitch_raw / 131
-    print("PITCH", pitch)
+    # print("PITCH", pitch)
 
+    # smooth signal
     if abs(pitch) > 2:
         angle = angle + pitch
 
-    print("ANGLE: ", angle)
+    # print("ANGLE: ", angle)
 
     # yaw_raw = lesen_wort_2c(0x47)
     # yaw = yaw_raw / 131
