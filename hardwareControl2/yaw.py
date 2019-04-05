@@ -73,22 +73,18 @@ class yaw(object):
     def loop(self):
         # make the while loop less intensive, increase 200000 to slow down
         # I/O error here
-        self.c += 1
-        if self.c == 20000:
-            self.c = 0
 
-        if self.c % 1000 == 0:
-            try:
-                pitch_raw = self.lesen_wort_2c(0x45)
-            except:
-                print("I/O Gyro Error")
-                pitch_raw = 0;
-            pitch = pitch_raw / 131
-            # print("PITCH", pitch)
+        try:
+            pitch_raw = self.lesen_wort_2c(0x45)
+        except:
+            print("I/O Gyro Error")
+            pitch_raw = 0;
+        pitch = pitch_raw / 131
+        # print("PITCH", pitch)
 
-            # smooth signal
-            if abs(pitch) > 2:
-                self.angle = self.angle + pitch
+        # smooth signal
+        if abs(pitch) > 2:
+            self.angle = self.angle + pitch
 
     # roll_raw = lesen_wort_2c(0x43)
     # roll = roll_raw / 131
