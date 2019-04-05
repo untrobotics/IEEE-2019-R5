@@ -15,8 +15,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/hardwareControl2/hardwareControl.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="104" column="70" lean-forward="true" selection-start-line="104" selection-start-column="70" selection-end-line="104" selection-end-column="70" />
+            <state relative-caret-position="255">
+              <caret line="105" column="36" lean-forward="true" selection-start-line="105" selection-start-column="36" selection-end-line="105" selection-end-column="36" />
               <folding>
                 <element signature="e#165#176#0" expanded="true" />
               </folding>
@@ -157,12 +157,12 @@
       <option name="presentableId" value="Default" />
       <updated>1554423867952</updated>
       <workItem from="1554423869321" duration="771000" />
-      <workItem from="1554424804029" duration="17983000" />
+      <workItem from="1554424804029" duration="18076000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="18754000" />
+    <option name="totallyTimeSpent" value="18847000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1043" height="824" extended-state="0" />
@@ -295,8 +295,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/hardwareControl2/hardwareControl.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="104" column="70" lean-forward="true" selection-start-line="104" selection-start-column="70" selection-end-line="104" selection-end-column="70" />
+        <state relative-caret-position="255">
+          <caret line="105" column="36" lean-forward="true" selection-start-line="105" selection-start-column="36" selection-end-line="105" selection-end-column="36" />
           <folding>
             <element signature="e#165#176#0" expanded="true" />
           </folding>
