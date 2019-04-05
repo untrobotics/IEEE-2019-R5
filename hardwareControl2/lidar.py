@@ -6,6 +6,7 @@ from tfmini_library import TFmini
 
 
 class lidarControl(object):
+    # 0.34
     tf = TFmini('/dev/ttyS0', mode=TFmini.STD_MODE)
     d = tf.read()
     # ser = serial.Serial("COM12", 115200)
@@ -22,7 +23,3 @@ class lidarControl(object):
     def __del__(self):
         self.tf.close()
         # f.close()
-
-
-lidarObj = lidarControl()
-print(lidarObj.getReading());

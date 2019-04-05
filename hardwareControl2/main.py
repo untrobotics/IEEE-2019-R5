@@ -16,14 +16,11 @@ else:
     NUMOFOBS = 15
 
 
-
-
-lidarObj = lidar.lidarControl()
-
-controller = file.hardwareControl(lidarObj)
-
+lidarObj = lidarControl()
 
 print(lidarObj.getReading());
+
+controller = hardwareControl(lidarObj)
 
 #controller.move(1,2)
 
