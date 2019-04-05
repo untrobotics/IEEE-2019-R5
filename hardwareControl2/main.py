@@ -1,6 +1,6 @@
 from lidar import lidarControl
 from hardwareControl import hardwareControl
-from yaw import getYaw
+from yaw import yaw
 
 import time
 import math
@@ -18,15 +18,13 @@ else:
     NUMOFOBS = 15
 
 
-while 1:
-    print(round(getYaw()))
-    time.sleep(.005)
+yawObj = yaw()
 
 lidarObj = lidarControl()
 
 print(lidarObj.getReading());
 
-controller = hardwareControl(lidarObj)
+controller = hardwareControl(lidarObj, yawObj)
 
 controller.rotate(360)
 

@@ -5,13 +5,14 @@ import time
 import math
 import smbus
 from lidar import lidarControl
-from yaw import getYaw
+from yaw import yaw
 
 
 class hardwareControl:
 
-    def __init__(self, lidarObj):
+    def __init__(self, lidarObj, yawObj):
         self.lidarObj = lidarObj
+        self.yawObj = yawObj
 
     distance = 0
 
@@ -84,11 +85,11 @@ class hardwareControl:
 
     def rotate(self, turnAngle):
 
-        startAngle = getYaw()
+        startAngle = self.yawObj.getYaw()
         currentAngle = startAngle
 
         while round(currentAngle) < round(turnAngle):
-            currentAngle = getYaw()-startAngle
+            currentAngle = self.yawObj.getYaw()-startAngle
             print("{} < {}".format(round(currentAngle), round(turnAngle)))
 
             # spin motors for short time

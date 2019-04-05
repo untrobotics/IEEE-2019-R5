@@ -24,8 +24,9 @@ import time
 #print "gyroskop_yout: ", ("%5d" % gyroskop_yout), " skaliert: ", (gyroskop_yout / 131) # pitch
 
 
-angle = 0;
-def getYaw():
+
+class yaw(object):
+    angle = 0;
 
     power_mgmt_1 = 0x6b
     power_mgmt_2 = 0x6c
@@ -70,14 +71,24 @@ def getYaw():
     # roll_raw = lesen_wort_2c(0x43)
     # roll = roll_raw / 131
     # print("ROLL", roll)
+    c = 0
+    while 1:
+        # make the while loop less intensive
+        c += 1
+        if c == 20000:
+            c = 0
 
-    pitch_raw = lesen_wort_2c(0x45)
-    pitch = pitch_raw / 131
-    # print("PITCH", pitch)
+        if c % 10 == 0:
+            pitch_raw = lesen_wort_2c(0x45)
+            pitch = pitch_raw / 131
+            # print("PITCH", pitch)
 
-    # smooth signal
-    if abs(pitch) > 2:
-        angle = angle + pitch
+            # smooth signal
+            if abs(pitch) > 2:
+                angle = angle + pitch
+
+    def getAngle(self):
+        return -self.angle
 
     # print("ANGLE: ", angle)
 
@@ -86,12 +97,6 @@ def getYaw():
     # print("YAW", yaw);
 
     # yaw is backwards
-    return -pitch
-
-
-newYaw = getYaw()
-print(newYaw)
-
 
 #print "gyroskop_zout: ", ("%5d" % gyroskop_zout), " skaliert: ", (gyroskop_zout / 131) # yaw
 
