@@ -97,9 +97,9 @@ class hardwareControl:
         c = 0
         while currentAngle < round(turnAngle):
             currentAngle = round(self.yawObj.getAngle()-startAngle)
-            if (c % 10000 == 0):
+            if (c % 100000 == 0):
                 print(currentAngle)
-            if (c == 20000):
+            if (c == 200000):
                 c = 0
             c += 1
 
