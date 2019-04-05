@@ -23,7 +23,7 @@ yawObj = yaw()
 
 while 1:
     yawObj.loop()
-    yawObj.getAngle()
+    print(yawObj.getAngle())
 
 lidarObj = lidarControl()
 
