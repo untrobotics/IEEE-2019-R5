@@ -29,7 +29,7 @@ p1.start()
 
 time.sleep(3)
 
-print(yawObj.getAngle())
+print("TEST", yawObj.getAngle())
 lidarObj = lidarControl()
 
 print(lidarObj.getReading());
