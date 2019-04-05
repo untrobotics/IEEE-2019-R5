@@ -97,7 +97,7 @@ class hardwareControl:
             print("Current: {}".format(currentAngle))
 
             # spin motors for short time
-            self.send(self,inputString)
+            self.send(self.inputString)
 
 
         print("GYRO: {}".format(getYaw()))
