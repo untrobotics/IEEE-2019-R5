@@ -76,11 +76,12 @@ class yaw(object):
         if self.c == 20000:
             self.c = 0
 
-        if self.c % 1000 == 0:
+        if self.c % 2000 == 0:
             try:
                 pitch_raw = self.lesen_wort_2c(0x45)
             except:
                 print("I/O Gyro Error")
+                pitch_raw = 0;
             pitch = pitch_raw / 131
             # print("PITCH", pitch)
 
