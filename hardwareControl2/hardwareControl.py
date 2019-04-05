@@ -89,9 +89,9 @@ class hardwareControl:
         currentAngle = startAngle
 
         if turnAngle > 0:
-            inputString = "drive,{},{},{},{},{}".format(-40, -40, 40, 40, 40000)
+            inputString = "drive,{},{},{},{},{}".format(-40, -40, 40, 40, 4000)
         else:
-            inputString = "drive,{},{},{},{},{}".format(40, 40, -40, -40, 40000)
+            inputString = "drive,{},{},{},{},{}".format(40, 40, -40, -40, 4000)
 
         self.send(inputString)
         c = 0
