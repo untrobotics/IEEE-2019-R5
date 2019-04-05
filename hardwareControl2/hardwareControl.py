@@ -86,13 +86,13 @@ class hardwareControl:
         startAngle = getYaw()
         currentAngle = startAngle
 
-        while currentAngle < abs(turnAngle):
-            currentAngle = getYaw()
+
+        while currentAngle < abs(turnAngle)+abs(startAngle):
+            currentAngle += getYaw()
             print("Current: {}".format(currentAngle))
 
             # spin motors for short time
             if turnAngle > 0:
-                turnAngle = -turnAngle
                 inputString = "drive,{},{},{},{},{}".format(-30, -30, 30, 30, 50)
             else:
                 inputString = "drive,{},{},{},{},{}".format(30, 30, -30, -30, 50)
