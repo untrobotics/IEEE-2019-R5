@@ -100,6 +100,7 @@ class hardwareControl:
             self.yawObj.loop()
             lastAngle = currentAngle
             currentAngle = round(self.yawObj.getAngle()-startAngle)
+            print(currentAngle + " - " + lastAngle)
 
             if (currentAngle != lastAngle):
                 print(currentAngle, ",", self.lidarObj.getReading())
