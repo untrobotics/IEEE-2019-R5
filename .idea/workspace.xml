@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="270fbd6b-29bb-4a32-a649-fd567be771fc" name="Default Changelist" comment="" />
+    <list default="true" id="270fbd6b-29bb-4a32-a649-fd567be771fc" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/hardwareControl2/hardwareControl.py" beforeDir="false" afterPath="$PROJECT_DIR$/hardwareControl2/hardwareControl.py" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -10,11 +12,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/hardwareControl2/hardwareControl.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="280">
-              <caret line="99" column="30" lean-forward="true" selection-start-line="99" selection-start-column="30" selection-end-line="99" selection-end-column="30" />
+            <state relative-caret-position="355">
+              <caret line="104" column="68" lean-forward="true" selection-start-line="104" selection-start-column="68" selection-end-line="104" selection-end-column="68" />
               <folding>
                 <element signature="e#165#176#0" expanded="true" />
               </folding>
@@ -46,7 +48,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/hardwareControl2/main.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="317">
@@ -82,8 +84,8 @@
         <option value="$PROJECT_DIR$/hardwareControl/lidar.py" />
         <option value="$PROJECT_DIR$/hardwareControl2/lidar.py" />
         <option value="$PROJECT_DIR$/hardwareControl2/yaw.py" />
-        <option value="$PROJECT_DIR$/hardwareControl2/hardwareControl.py" />
         <option value="$PROJECT_DIR$/hardwareControl2/main.py" />
+        <option value="$PROJECT_DIR$/hardwareControl2/hardwareControl.py" />
       </list>
     </option>
   </component>
@@ -155,12 +157,12 @@
       <option name="presentableId" value="Default" />
       <updated>1554423867952</updated>
       <workItem from="1554423869321" duration="771000" />
-      <workItem from="1554424804029" duration="19708000" />
+      <workItem from="1554424804029" duration="19821000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="20479000" />
+    <option name="totallyTimeSpent" value="20592000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1043" height="824" extended-state="0" />
@@ -261,22 +263,22 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/hardwareControl2/hardwareControl.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="99" column="30" lean-forward="true" selection-start-line="99" selection-start-column="30" selection-end-line="99" selection-end-column="30" />
-          <folding>
-            <element signature="e#165#176#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/hardwareControl2/lidar.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
           <caret line="16" column="25" lean-forward="true" selection-start-line="16" selection-start-column="25" selection-end-line="16" selection-end-column="25" />
           <folding>
             <element signature="e#0#47#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hardwareControl2/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="317">
+          <caret line="25" column="14" lean-forward="true" selection-start-line="25" selection-start-column="14" selection-end-line="25" selection-end-column="14" />
+          <folding>
+            <element signature="e#0#30#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -291,12 +293,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/hardwareControl2/main.py">
+    <entry file="file://$PROJECT_DIR$/hardwareControl2/hardwareControl.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="317">
-          <caret line="25" column="14" lean-forward="true" selection-start-line="25" selection-start-column="14" selection-end-line="25" selection-end-column="14" />
+        <state relative-caret-position="355">
+          <caret line="104" column="68" lean-forward="true" selection-start-line="104" selection-start-column="68" selection-end-line="104" selection-end-column="68" />
           <folding>
-            <element signature="e#0#30#0" expanded="true" />
+            <element signature="e#165#176#0" expanded="true" />
           </folding>
         </state>
       </provider>

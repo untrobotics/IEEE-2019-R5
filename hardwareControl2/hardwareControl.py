@@ -103,8 +103,10 @@ class hardwareControl:
 
             if (currentAngle != lastAngle):
                 print(currentAngle, ",", self.lidarObj.getReading())
-                writeString = (str(currentAngle) + "," + str(self.lidarObj.getReading()))
+                writeString = (str(currentAngle) + "," + str(self.lidarObj.getReading()) + "\n")
                 f.write(writeString)
+
+            time.sleep(.01)
 
             # if (c % 10000 == 0):
             #     print(currentAngle, " < ", round(turnAngle-startAngle))
