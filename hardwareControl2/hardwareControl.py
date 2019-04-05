@@ -98,7 +98,7 @@ class hardwareControl:
                 inputString = "drive,{},{},{},{},{}".format(20, 20, -20, -20, 100)
 
             self.send(inputString)
-            time.sleep(1)
+            time.sleep(.01)
 
 
         print("GYRO: {}".format(getYaw()))
