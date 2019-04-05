@@ -90,9 +90,9 @@ class yaw(object):
     # roll = roll_raw / 131
     # print("ROLL", roll)
 
-    # change 300000 to adjust angle, higher less spin
+    # change 35000 to adjust angle, higher less spin
     def getAngle(self):
-        return -round(self.angle/30000*360)
+        return -round(self.angle/35000*360)
 
     # print("ANGLE: ", angle)
 
