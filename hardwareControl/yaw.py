@@ -58,7 +58,7 @@ def getYaw():
         return math.degrees(radians)
 
     bus = smbus.SMBus(1)  # bus = smbus.SMBus(0) fuer Revision 1
-    address = 0x68        
+    address = 0x68
 
     # Aktivieren, um das Modul ansprechen zu koennen
     bus.write_byte_data(address, power_mgmt_1, 0)
@@ -66,9 +66,11 @@ def getYaw():
     gyroskop_xout = lesen_wort_2c(0x43)
     gyroskop_yout = lesen_wort_2c(0x45)
     gyroskop_zout = lesen_wort_2c(0x47)
-    roll_raw = lesen_wort_2c(0x43)
-    roll = roll_raw / 131
-    return roll
+    # roll_raw = lesen_wort_2c(0x43)
+    # roll = roll_raw / 131
+    pitch_raw = lesen_wort_2c(0x45)
+    pitch = pitch_raw / 131
+    return pitch
 
 
 newYaw = getYaw()
