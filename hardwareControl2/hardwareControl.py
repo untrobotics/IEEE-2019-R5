@@ -82,7 +82,7 @@ class hardwareControl:
         #send the command with a distance do some trig or shit
 
     def rotate(self, angle):
-        print("LIDAR FROM HC: " + self.lidarObj.getReading())
+        print("LIDAR FROM HC: {}".format(self.lidarObj.getReading()))
         print(angle)
 
 
