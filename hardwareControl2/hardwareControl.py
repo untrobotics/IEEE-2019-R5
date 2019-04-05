@@ -98,6 +98,7 @@ class hardwareControl:
 
             # spin motors for short time
             self.send(inputString)
+            time.sleep(.01)
 
 
         print("GYRO: {}".format(getYaw()))
