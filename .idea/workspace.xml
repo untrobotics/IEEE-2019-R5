@@ -15,8 +15,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/hardwareControl2/hardwareControl.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="359">
-              <caret line="91" column="75" selection-start-line="91" selection-start-column="75" selection-end-line="91" selection-end-column="75" />
+            <state relative-caret-position="389">
+              <caret line="93" column="76" selection-start-line="93" selection-start-column="76" selection-end-line="93" selection-end-column="76" />
               <folding>
                 <element signature="e#165#176#0" expanded="true" />
               </folding>
@@ -157,12 +157,12 @@
       <option name="presentableId" value="Default" />
       <updated>1554423867952</updated>
       <workItem from="1554423869321" duration="771000" />
-      <workItem from="1554424804029" duration="16385000" />
+      <workItem from="1554424804029" duration="16438000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="17156000" />
+    <option name="totallyTimeSpent" value="17209000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1043" height="824" extended-state="0" />
@@ -295,8 +295,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/hardwareControl2/hardwareControl.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="359">
-          <caret line="91" column="75" selection-start-line="91" selection-start-column="75" selection-end-line="91" selection-end-column="75" />
+        <state relative-caret-position="389">
+          <caret line="93" column="76" selection-start-line="93" selection-start-column="76" selection-end-line="93" selection-end-column="76" />
           <folding>
             <element signature="e#165#176#0" expanded="true" />
           </folding>
