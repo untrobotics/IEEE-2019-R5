@@ -19,23 +19,19 @@ else:
     NUMOFOBS = 15
 
 yawObj = yaw()
-print(yawObj.getAngle())
+lidarObj = lidarControl()
+controller = hardwareControl(lidarObj, yawObj)
 
 def backgroundLoop():
+    yawObj.version = 10
     while 1:
         yawObj.loop()
-        #print("Thread 2: ", yawObj.getAngle())
+
 
 def foreground():
-    time.sleep(5)
-
-    print("TEST: ", yawObj.getAngle())
-    lidarObj = lidarControl()
-
     print("LIDAR: ", lidarObj.getReading())
-
-    controller = hardwareControl(lidarObj, yawObj)
-
+    time.sleep(4)
+    print("VERSION: ",yawObj.version)
     controller.rotate(360)
 
 

@@ -27,6 +27,7 @@ import time
 
 class yaw(object):
     angle = 0;
+    version = 0;
 
     power_mgmt_1 = 0x6b
     power_mgmt_2 = 0x6c
