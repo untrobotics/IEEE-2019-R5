@@ -99,7 +99,7 @@ class hardwareControl:
             currentAngle = self.yawObj.getAngle()-startAngle
             if (c%100 == 0):
                 print(currentAngle)
-            if (c==20000)
+            if (c==20000):
                 c=0
             c+=1
 
