@@ -83,11 +83,11 @@ class hardwareControl:
         #send the command with a distance do some trig or shit
 
     def rotate(self, turnAngle):
-        startAngle = getYaw()
-        currentAngle = startAngle
 
-        while round(currentAngle) < abs(turnAngle)+abs(startAngle):
-            currentAngle += getYaw()
+        startAngle = getYaw
+
+        while round(currentAngle) < round(turnAngle):
+            currentAngle = getYaw()-startAngle
             print("{} < {}".format(currentAngle, abs(turnAngle)+abs(startAngle)))
 
             # spin motors for short time

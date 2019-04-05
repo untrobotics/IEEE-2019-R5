@@ -24,7 +24,7 @@ print(lidarObj.getReading());
 
 controller = hardwareControl(lidarObj)
 
-controller.rotate(359)
+controller.rotate(360)
 
 #controller.move(1,2)
 
