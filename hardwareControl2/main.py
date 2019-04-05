@@ -20,6 +20,7 @@ else:
 
 while 1:
     print(round(getYaw()))
+    time.sleep(.01)
 
 lidarObj = lidarControl()
 
