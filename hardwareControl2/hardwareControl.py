@@ -55,13 +55,17 @@ class hardwareControl:
         #lines = f.readlines() #reads all of the lines from file
 
         for line in f: #gets each line in file 
-            print("LOOP")
-
-            commands = line.split(",")
-            self.rotation(self, commands[2])
-            time.sleep(.5)
-            self.drive(self, commands[0], commands[1])
-            time.sleep(.5)
+            if(line is "Block"):
+                self.pickupBlock()
+            elif(line is "Mothership"):
+                self.dropOffBlock()
+            elif(line is "Home"):
+                self.returnHome()
+            else:
+                commands = line.split(",")
+                time.sleep(.5)
+                self.drive(commands[0], commands[1])
+                time.sleep(.5)
 
     def send(self, inputString):
         timeout = 0
@@ -83,15 +87,15 @@ class hardwareControl:
                 print("Message sent successfully")
                 break
 
-    def rotation(self, rot):
-        self.destRot = float(rot) - self.currentRot
-        if(self.destRot >0):
-            self.V1 = 0
-            self.V2 = 0
-            self.V3 = 20
-            self.V4 = 20
+    # def rotation(self, rot):
+    #     self.destRot = float(rot) - self.currentRot
+    #     if(self.destRot >0):
+    #         self.V1 = 0
+    #         self.V2 = 0
+    #         self.V3 = 20
+    #         self.V4 = 20
         
-        #send the command with a distance do some trig or shit
+    #     #send the command with a distance do some trig or shit
 
     def rotate(self, turnAngle):
        
@@ -99,10 +103,10 @@ class hardwareControl:
         startAngle = self.yawObj.getAngle()
         currentAngle = startAngle
 
-        if turnAngle > 0:
-            inputString = "drive,{},{},{},{},{}".format(-30, -30, 30, 30, 30000)
+        if turnAngle < 0:
+            inputString = "drive,{},{},{},{},{}".format(-40, -40, 40, 40, 30000)
         else:
-            inputString = "drive,{},{},{},{},{}".format(30, 30, -30, -30, 30000)
+            inputString = "drive,{},{},{},{},{}".format(40, 40, -40, -40, 30000)
 
         self.send(inputString)
         c = 0
@@ -116,21 +120,19 @@ class hardwareControl:
         inputString = "drive,{},{},{},{},{}".format(0, 0, 0, 0, 500)
         self.send(inputString)
 
-
-
         print("GYRO: {}".format(self.yawObj.getAngle()))
 
     
     def initScan(self):
         turnAngle = 360
         # rotate negative angles not working, debug
-        f = open("lidar2.txt", "w")
+        f = open("lidar2GOOD2.txt", "w")
 
         startAngle = self.yawObj.getAngle()
         
         currentAngle = startAngle
 
-        inputString = "drive,{},{},{},{},{}".format(30, 30, -30, -30, 30000)
+        inputString = "drive,{},{},{},{},{}".format(45, 45, -45, -45, 30000)
 
         self.send(inputString)
         c = 0
@@ -140,11 +142,11 @@ class hardwareControl:
             currentAngle = round((self.yawObj.getAngle() - startAngle), 2)
             
             if (currentAngle % .25 > 0 and currentAngle % .25 < .2):
-                print(currentAngle, ",", self.lidarObj.getReading())
+                #print(currentAngle, ",", self.lidarObj.getReading())
                 writeString = (str(currentAngle) + "," + str(self.lidarObj.getReading()) + "\n")
                 f.write(writeString)
 
-            time.sleep(.01)
+            #time.sleep(.01)
 
             # if (c % 10000 == 0):
             #     print(currentAngle, " < ", round(turnAngle-startAngle))
@@ -167,28 +169,31 @@ class hardwareControl:
 
         global distance
 
+        global currentX
+
+        global currentY
+
         global encoderCorrection 
 
-        #print("X: "+x))
+        Angle = 0 
+        #need to get angle to turn in degrees  
 
-       # if(float(x) > 0):
-        #     print("LEFT?")
-        #     self.V1 = 80
-        #     self.V2 = -80
-        #     self.V3 = -140
-        #     self.V4 = 140
-        #     self.distance = (abs(float(x))*self.encoderCorrection)
-        # elif(float(x) < 0):
-        #     print("Right?")
-        #     self.V1 = -80
-        #     self.V2 = 80
-        #     self.V3 = 140
-        #     self.V4 = -130 
-        #     self.distance = (abs(float(x))*self.encoderCorrection)
+        Angle = math.atan(float(x)/float(y))
+
+        distance = math.sqrt((pow((float(x) - self.currentX), 2)) + (pow((float(y) - self.currentY), 2)))
+
+        #print("Angle: " + (str(math.degrees(Angle))))
+        #print("Distance: " + str(distance))
+
+
+        self.rotate(Angle)
+
+        #time.sleep(3)
+
         if(float(y) > 0):
             print("forward")
-            self.V1 = 35
-            self.V2 = 35
+            self.V1 = 30
+            self.V2 = 30
             self.V3 = 30
             self.V4 = 30
             self.distance = (abs(float(y))*self.encoderCorrection)
@@ -196,14 +201,14 @@ class hardwareControl:
             print("backward")
             self.V1 = -30
             self.V2 = -30
-            self.V3 = -35
-            self.V4 = -35 
+            self.V3 = -30
+            self.V4 = -30 
             self.distance = (abs(float(y))*self.encoderCorrection)
 
 
-        print("V1: {} V2: {} V3: {} V4: {}".format(self.V1,self.V2,self.V3,self.V4))
-        print ("Distance: {}".format(self.distance))
-        print("drive,{},{},{},{},{}".format(round(self.V1, 3),round(self.V2,3),round(self.V3,3),round(self.V4,3),int(round(self.distance,3))))
+       # print("V1: {} V2: {} V3: {} V4: {}".format(self.V1,self.V2,self.V3,self.V4))
+        #print ("Distance: {}".format(self.distance))
+        #print("drive,{},{},{},{},{}".format(round(self.V1, 3),round(self.V2,3),round(self.V3,3),round(self.V4,3),int(round(self.distance,3))))
 
         inputString = "drive,{},{},{},{},{}".format(round(self.V1, 3),round(self.V2,3),round(self.V3,3),round(self.V4,3),int(round(self.distance,3)))
         self.send(inputString)
@@ -240,23 +245,97 @@ class hardwareControl:
 
         self.send(inputString)
 
+    def dropOffBlock(self):
+
+        distance = self.lidarObj.getReading()
+        correction = 0
+
+        self.moveGrabberUp(1)
+        time.sleep(2.5)
+
+        self.drive(0 , (distance - correction)) # should drive into the box 
+
+        time.sleep(3) #wait
+
+        self.runGrabber(1) #release the block
+
+        time.sleep(2)
+
+        self.drive(0 , -10) #move back away from the ship
+
+        time.sleep(2)
+
+        self.rotate(-90) # about face right 
+
+        time.sleep(2)
+
+        self.drive(0, 8) #drive to the next cubby 
+
+        time.sleep(2) #shhh
+
+        self.rotate(90) # rotate back to the ship 
+
+        time.sleep(2)
+
+        self.drive(0,10) #drive back to the ship
+
+        time.sleep(2) 
+
+        self.runGrabber(1) #release the block
+
+        time.sleep(2)
+
+        self.drive(0 , -10) #Repeat even if we dont have the blocks
+
+        time.sleep(2)
+
+        self.rotate(-90) # about face right 
+
+        time.sleep(2)
+
+        self.drive(0, 8)
+
+        time.sleep(2)
+
+        self.rotate(90)
+
+        time.sleep(2)
+
+        self.drive(0,10)
+
+        time.sleep(2)
+
+    def returnHome(self):
+        self.drive(0,0) 
+        sleep(10)
+        self.moveGrabber(0)
+        while(True) 
+            self.lightLED()
+
+    def lightLED():
+
 
 
 
     def pickupBlock(self):
-
+        
         #this function is a predefined method to pick up a block. Should work as long as we are over 30 cm away
         distance = 0
-        distanceAway = self.lidarObj.getReading() #get the actual distance we are away
-
+        
+        for x in 10:
+            distanceAway = self.lidarObj.getReading() #get the actual distance we are away
+            if(distanceAway < 3.4)
+                self.rotate(5)
+            x+1
+            
         print(distanceAway)
 
         if(distanceAway >= .34):
-            self.drive(0,(distanceAway*100)) 
+            self.drive(0,((distanceAway*100)+5)) 
         else:
             self.drive(0,0)
 
-        time.sleep(5)
+        time.sleep(7.5)
         self.runGrabber(0)  #block should be picked up here    
         time.sleep(1) #waiting 1 
 

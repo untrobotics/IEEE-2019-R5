@@ -30,25 +30,15 @@ def backgroundLoop():
 
 def foreground():
     #print("LIDAR: ", lidarObj.getReading())
-    #controller.rotate(360)
     
-    #controller.drive(0,20)
-    #time.sleep(6)
-    #controller.moveGrabber(1)
-    #time.sleep(3)
-    #controller.drive(0,5)
-    #time.sleep(2)
-    #controller.moveGrabber(0)
-    #time.sleep(2.2)
-    #controller.runGrabber(0)
-    #time.sleep(2.2)
-    #controller.runGrabber(1)
+    #   controller.initScan()
 
-    controller.initScan()
+    #call the c++ file to write to code 
 
-    #controller.drive(0,0)
-    #controller.pickupBlock()
-    #controller.rotation(360)
+    controller.drive(1,1)
+
+#    controller.readandMove()
+
 
 b = threading.Thread(name='background', target=backgroundLoop)
 f = threading.Thread(name='foreground', target=foreground)

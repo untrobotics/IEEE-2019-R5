@@ -32,8 +32,8 @@ int main()
 		objects[i].yblock = json_obj["y coords"][i].asInt();
 		std::cout << "Y coord " << i << ":" << objects[i].yblock << std::endl;
 	}
-	std::ifstream lid("lidar1.txt");
-	lidarscans scans[360];
+	std::ifstream lid("lidar3GOOD2.txt");
+	lidarscans scans[1000];
 	i = 0;
 	float lidarx = 3 * 2.54;
 	float lidary = 1.375 * 2.54;
@@ -57,13 +57,13 @@ int main()
 		
 		lidarcoordx = robotx +( lidarfromcenter * cos(scans[i].degrees + lidaroffset));
 		lidarcoordy = roboty +( lidarfromcenter * sin(scans[i].degrees + lidaroffset));
-		std::cout << "The lidar x coordinates are " << lidarcoordx << std::endl;
-		std::cout << "The lidar y coordinates are " << lidarcoordy << std::endl;
-		std::cout << "The distance is: " << scans[i].distance << std::endl;
+		//std::cout << "The lidar x coordinates are " << lidarcoordx << std::endl;
+		//std::cout << "The lidar y coordinates are " << lidarcoordy << std::endl;
+		//std::cout << "The distance is: " << scans[i].distance << std::endl;
 		scannedpointx = lidarcoordx +( scans[i].distance * cos(scans[i].degrees));
 		scannedpointy = lidarcoordy +( scans[i].distance * sin(scans[i].degrees));
 
-		std::cout << "Angle is: " << i+1 << std::endl;
+		std::cout << "Angle is: " << scans[i].degrees << std::endl;
 		std::cout << "The x coordinates are " << scannedpointx << std::endl;
 		std::cout << "The y coordinates are " << scannedpointy << std::endl;
 		if((scannedpointx >= (objects[0].xblock * 12 * 2.54) && scannedpointx <= ((objects[0].xblock + 1) * 12 * 2.54))&&(scannedpointy >= (objects[0].yblock * 12 * 2.54) && scannedpointy <= ((objects[0].yblock + 1) * 12 * 2.54)))

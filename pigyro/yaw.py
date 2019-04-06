@@ -82,6 +82,7 @@ while True:
 	yaw_raw = lesen_wort_2c(0x47)
 	yaw = yaw_raw / 131
 	print("YAW", yaw);
+        time.sleep(.05);
 	#time.sleep(0.1);
 
 #print "gyroskop_zout: ", ("%5d" % gyroskop_zout), " skaliert: ", (gyroskop_zout / 131) # yaw 

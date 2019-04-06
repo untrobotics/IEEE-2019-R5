@@ -78,7 +78,7 @@ class yaw(object):
             pitch_raw = self.lesen_wort_2c(0x45)
         except:
             print("I/O Gyro Error")
-            pitch_raw = 0;
+            pitch_raw = 0
         pitch = pitch_raw / 131
         # print("PITCH", pitch)
 
@@ -92,7 +92,7 @@ class yaw(object):
 
     # change 35000 to adjust angle, higher less spin
     def getAngle(self):
-        return (self.angle/31000*360)
+        return (self.angle/29000*360)
 
     # print("ANGLE: ", angle)
 

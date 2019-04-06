@@ -93,7 +93,7 @@ bool getObjects(LIST_OBJECTS &L, std::string filename) {
 */
 void makeTerrainGrid(LIST_OBJECTS &L, uint8_t terrainGrid[][GRID_W + 1]) {
 	int16_t gridI, gridJ, swap = 0, draw, nodes[24] = { INT16_MAX };
-	uint8_t c0, c1, o, num_nodes = 0;
+	uint8_t c0, c1, o, p, num_nodes = 0;
 	float pixI, pixJ, c0_i, c0_j, c1_i, c1_j;
 
 	//Build a list of nodes
@@ -236,6 +236,20 @@ void makeTerrainGrid(LIST_OBJECTS &L, uint8_t terrainGrid[][GRID_W + 1]) {
 		draw = int16_t(min(obj_robot_l / 2.0f, obj_robot_w / 2.0f) / GRID);
 		drawFilledCircle(terrainGrid, makePoint(grid_i, grid_j), draw + int16_t(6 / GRID), 127);
 		drawFilledCircle(terrainGrid, makePoint(grid_i, grid_j), draw, 255);
+		
+		//Connect close objects
+		for(p=0; p< L.num_cube; p++) {
+			if (sqrt(pow(L.obj_obstacle[o].y_pos - L.obj_cube[p].y_pos, 2) + pow(L.obj_obstacle[o].x_pos - L.obj_obstacle[p].x_pos, 2)) < max(obj_robot_l, obj_robot_w)) {
+				drawFilledLine(terrainGrid, makePoint(int16_t(L.obj_obstacle[o].y_pos / GRID), int16_t(L.obj_obstacle[o].x_pos / GRID)), makePoint(int16_t(L.obj_cube[p].y_pos / GRID), int16_t(L.obj_cube[p].x_pos / GRID)), 255);
+				drawFilledLine(terrainGrid, makePoint(int16_t(L.obj_obstacle[o].y_pos / GRID), int16_t((L.obj_obstacle[o].x_pos - GRID) / GRID)), makePoint(int16_t(L.obj_cube[p].y_pos / GRID), int16_t((L.obj_cube[p].x_pos - GRID) / GRID)), 255);
+			}
+		}
+		for(p=o+1; p< L.num_obstacle; p++) {
+			if (sqrt(pow(L.obj_obstacle[o].y_pos - L.obj_obstacle[p].y_pos, 2) + pow(L.obj_obstacle[o].x_pos - L.obj_obstacle[p].x_pos, 2)) < max(obj_robot_l, obj_robot_w)) {
+				drawFilledLine(terrainGrid, makePoint(int16_t(L.obj_obstacle[o].y_pos / GRID), int16_t(L.obj_obstacle[o].x_pos / GRID)), makePoint(int16_t(L.obj_obstacle[p].y_pos / GRID), int16_t(L.obj_obstacle[p].x_pos / GRID)), 255);
+				drawFilledLine(terrainGrid, makePoint(int16_t(L.obj_obstacle[o].y_pos / GRID), int16_t((L.obj_obstacle[o].x_pos - GRID) / GRID)), makePoint(int16_t(L.obj_obstacle[p].y_pos / GRID), int16_t((L.obj_obstacle[p].x_pos - GRID) / GRID)), 255);
+			}
+		}
 	}
 
 }
@@ -471,31 +485,41 @@ int16_t calculateSequence(int16_t n) {
 	Find the optimal destination point around the given cube & generate a path to it
 */
 point<float> makePathCube(LIST_OBJECTS &L, uint8_t terrainGrid[][GRID_W + 1], point<int16_t> src, PROP_CUBE &c) {
-	unsigned int a/*, b*/;
+	unsigned int a, b;
 	int8_t safe = -1;
-	int16_t draw, score[4] = { INT16_MAX };
-	float theta = c.dir, delta = 0.01f;
+	int16_t draw, edge_buff = int16_t(obj_robot_w / (2.0f * GRID)), score[4] = { INT16_MAX };
+	float theta = c.dir, delta = 35.0f;
 	float r = (obj_cube_w / 2.0f) + (obj_robot_l / 2.0f) + delta;
 	point<int16_t> checks[4], src_grid = makePoint(int16_t(src.i / GRID), int16_t(src.j / GRID), src.d);
 	point<float> corners[4], temp_p, dest = makePoint(-1.0f, -1.0f, 0.0f);
 
 	//Generate a list of points around the cube to check
-	for (a = 0; a < 4; a++) {
-		checks[a].i = int16_t((c.y_pos + (r * sin(theta))) / GRID);
-		checks[a].j = int16_t((c.x_pos + (r * cos(theta))) / GRID);
-		checks[a].d = wrap(theta + PI, 0.0f, PI*2.0f);
-		theta = wrap(theta + (PI / 2.0f), 0.0f, PI*2.0f);
-	}
+	for(b = 0; b < ceil(delta / min(obj_robot_w, obj_robot_l)); b++) {
+		for (a = 0; a < 4; a++) {
+			checks[a].i = int16_t((c.y_pos + (r * sin(theta))) / GRID);
+			checks[a].j = int16_t((c.x_pos + (r * cos(theta))) / GRID);
+			checks[a].d = wrap(theta + PI, 0.0f, PI*2.0f);
+			theta = wrap(theta + (PI / 2.0f), 0.0f, PI*2.0f);
+		}
+		delta -= min(obj_robot_w, obj_robot_l);
+		if (delta < 1.0f) { delta = 1.0f; }
+		
+		//Determine which point is the safest
+		for (a = 0; a < 4; a++) {
+			//Check if the spot is invalid
+			if (checks[a].i < edge_buff || checks[a].j < edge_buff ||
+				checks[a].i > (FIELD - edge_buff) || checks[a].j > (FIELD - edge_buff)) {
+				continue;
+			}
+			
+			//Calculate the corners of the robot
+			calculateCorners(checks[a], obj_robot_w, obj_robot_l, corners);
 
-	//Determine which point is the safest
-	for (a = 0; a < 4; a++) {
-		//Calculate the corners of the robot
-		calculateCorners(checks[a], obj_robot_w, obj_robot_l, corners);
-
-		//Calculate the safety of that region
-		score[a] = calculateArea(terrainGrid, corners) + calculateH(src, checks[a]);
-		if (safe == -1 || score[a] < score[safe]) {
-			safe = a;
+			//Calculate the safety of that region
+			score[a] += calculateArea(terrainGrid, corners) + calculateH(src, checks[a]);
+			if (safe == -1 || score[a] < score[safe]) {
+				safe = a;
+			}
 		}
 	}
 
@@ -508,7 +532,6 @@ point<float> makePathCube(LIST_OBJECTS &L, uint8_t terrainGrid[][GRID_W + 1], po
 	aStar(terrainGrid, src, checks[safe], raw_path);
 
 	//Calculate angles along the path
-	int16_t edge_buff = int16_t(obj_robot_w / (2.0f * GRID));
 	float closest = FLT_MAX;
 	for (std::vector<point<int16_t>>::reverse_iterator it = raw_path.rbegin() + 1; it < raw_path.rend(); it++) {
 		//Get the direction from this point to the next point sequentially (the previous point iteratively)
@@ -637,9 +660,310 @@ point<float> makePathCube(LIST_OBJECTS &L, uint8_t terrainGrid[][GRID_W + 1], po
 		out_text << temp_p.j << "," << mirrorI(temp_p.i) << "," << temp_p.d << std::endl;
 		path.pop();
 	}
+	out_text << "Block" << std::endl;
 	out_text.close();
 
 	return dest;
+}
+
+/*
+	Generate a path to the mothership
+*/
+point<float> makePathMothership(LIST_OBJECTS &L, uint8_t terrainGrid[][GRID_W + 1], point<int16_t> src, PROP_MOTHERSHIP &m) {
+	unsigned int a, b;
+	int16_t draw, edge_buff = int16_t(obj_robot_w / (2.0f * GRID));
+	float dest_x, dest_y, dest_r;
+	point<int16_t> src_grid = makePoint(int16_t(src.i / GRID), int16_t(src.j / GRID), src.d);
+	point<float> corners[4], temp_p, dest = makePoint(-1.0f, -1.0f, 0.0f);
+
+	//Generate destination point
+	dest_x = (obj_mothership_l / 2.0f) + 1.0f;
+	dest_y = 6.95f;
+	dest_r = sqrt(pow(dest_x, 2) + pow(dest_y, 2));
+	
+	dest.i = m.y_pos + (dest_r * sin(m.dir));
+	dest.j = m.x_pos + (dest_r * cos(m.dir));
+
+	//Generate a path from src to the safest point
+	std::vector<point<int16_t>> raw_path;
+	aStar(terrainGrid, src, dest, raw_path);
+
+	//Calculate angles along the path
+	float closest = FLT_MAX;
+	for (std::vector<point<int16_t>>::reverse_iterator it = raw_path.rbegin() + 1; it < raw_path.rend(); it++) {
+		//Get the direction from this point to the next point sequentially (the previous point iteratively)
+		std::vector<point<int16_t>>::reverse_iterator last_it = it - 1;
+		float di = (last_it->i - it->i) * GRID, dj = (last_it->j - it->j) * GRID;
+		float move_dir = wrap(float(atan(mirrorI(di) / dj)), 0.0f, 2*PI);
+		it->d = move_dir;
+
+		/*
+			The first thing that has to happen with angle checking is setting the current points rotation to
+			the value of the previous iterator (which represents the next closest point to the destination
+			in the path). The reason for this is so that any angle adjustments propogate backwards through
+			the path, so that critical rotations will happen before they are necessary.
+
+		if (it != raw_path.rbegin()) {
+			std::vector<point<int16_t>>::reverse_iterator last_it = it - 1;
+			it->d = last_it->d;
+		}
+
+		//Only do a rotational check if the robot is significantly close enough to danger
+		for (b = 0; b < L.num_obstacle; b++) {
+			closest = min(closest, float(sqrt(pow(L.obj_obstacle[b].y_pos - it->i, 2) + pow(L.obj_obstacle[b].x_pos - it->j, 2))));
+		}
+		for (b = 0; b < L.num_cube; b++) {
+			closest = min(closest, float(sqrt(pow(L.obj_cube[b].y_pos - it->i, 2) + pow(L.obj_cube[b].x_pos - it->j, 2))));
+		}
+		if (it->i < edge_buff || it->i > GRID_H - edge_buff
+			|| it->j < edge_buff || it->j > GRID_W - edge_buff
+			|| closest < (edge_buff * 2.0f)) {
+			//Check if the current angle of the robot is too close to danger
+			calculateCorners(*it, obj_robot_w, obj_robot_l, corners);
+			if (calculateArea(terrainGrid, corners) > 0) {
+				//Check surrounding angles for a better position
+				float optimal_dir = it->d, max_dir = optimal_dir + PI, curr_dir = optimal_dir + 0.1f, area, min_area = FLT_MAX;
+				point<int16_t> temp_p = makePoint(it->i, it->j, it->d);
+				for (curr_dir; curr_dir < max_dir; curr_dir += delta) {
+					//Update the point to check
+					temp_p.d = curr_dir;
+					//Get the corners at this angle
+					calculateCorners(temp_p, obj_robot_w, obj_robot_l, corners);
+					//Check the area of this angle
+					area = calculateArea(terrainGrid, corners);
+					//Record it if it's optimal
+					if (area < min_area) {
+						min_area = area;
+						optimal_dir = curr_dir;
+						//Stop looking if you find a rotation completely free from danger
+						if (area == 0.0f) {
+							break;
+						}
+					}
+				}
+				//Save this optimal new direction
+				it->d = optimal_dir;
+			}
+		}*/
+	}
+
+	//Turn the vector into a stack of points
+	std::stack<point<float>> path;
+	int16_t di, dj, last_di = INT16_MAX, last_dj = INT16_MAX;
+	float last_rot = FLT_MAX;
+	for (std::vector<point<int16_t>>::reverse_iterator it = raw_path.rbegin(); it < raw_path.rend(); it++) {
+		//Check if its the beginning & save it as the destination to return
+		if (it == raw_path.rbegin()) {
+			dest.i = float(it->i * GRID);
+			dest.j = float(it->j * GRID);
+			dest.d = it->d;
+		}
+
+		//Check if the end of the path is reached
+		if (it + 1 == raw_path.rend()) {
+			//Convert grid coordinates to CM
+			point<float> p = makePoint(float(it->i * GRID), float(it->j * GRID), it->d);
+			path.push(p);
+
+			//If the end is reached, skip the next point conversion
+			break;
+		}
+		else {
+			//Check if the point is different from the ones before, or if it is the last point in the list
+			di = (it + 1)->i - it->i;
+			dj = (it + 1)->j - it->j;
+			if (di != last_di || dj != last_dj || abs(it->d - last_rot) > 0.0001f) {
+				//Convert grid coordinates to CM
+				point<float> p = makePoint(float(it->i * GRID), float(it->j * GRID), it->d);
+				path.push(p);
+			}
+
+			//Save the current calculations for the next cycle
+			last_di = di;
+			last_dj = dj;
+			last_rot = it->d;
+		}
+	}
+	raw_path.clear();
+
+	//Output the path as a text file
+	std::ofstream out_text("path.txt");
+	if (!out_text.is_open() || out_text.bad() || path.size() == 0) {
+		dest.i = -1.0f;
+		dest.j = -1.0f;
+		dest.d = 0.0f;
+		return dest;
+	}
+	while (!path.empty()) {
+		point<float> temp_p = path.top();
+		out_text << temp_p.j << "," << mirrorI(temp_p.i) << "," << temp_p.d << std::endl;
+		path.pop();
+	}
+	out_text << "Mothership" << std::endl;
+	out_text.close();
+
+	return dest;
+}
+
+/*
+	Generate a path to the mothership
+*/
+point<float> makePathHome(LIST_OBJECTS &L, uint8_t terrainGrid[][GRID_W + 1], point<int16_t> src) {
+	unsigned int a, b;
+	int16_t draw, edge_buff = int16_t(obj_robot_w / (2.0f * GRID));
+	float dest_x, dest_y, dest_r;
+	point<int16_t> src_grid = makePoint(int16_t(src.i / GRID), int16_t(src.j / GRID), src.d);
+	point<float> corners[4], temp_p, dest = makePoint(-1.0f, -1.0f, 0.0f);
+
+	//ET Phone Home
+	dest.i = (FIELD / 2.0f) + 15.24f;
+	dest.j = (FIELD / 2.0f) + 15.24f;
+	dest.r = 0.0f;
+
+	//Generate a path from src to the safest point
+	std::vector<point<int16_t>> raw_path;
+	aStar(terrainGrid, src, dest, raw_path);
+
+	//Calculate angles along the path
+	float closest = FLT_MAX;
+	for (std::vector<point<int16_t>>::reverse_iterator it = raw_path.rbegin() + 1; it < raw_path.rend(); it++) {
+		//Get the direction from this point to the next point sequentially (the previous point iteratively)
+		std::vector<point<int16_t>>::reverse_iterator last_it = it - 1;
+		float di = (last_it->i - it->i) * GRID, dj = (last_it->j - it->j) * GRID;
+		float move_dir = wrap(float(atan(mirrorI(di) / dj)), 0.0f, 2*PI);
+		it->d = move_dir;
+
+		/*
+			The first thing that has to happen with angle checking is setting the current points rotation to
+			the value of the previous iterator (which represents the next closest point to the destination
+			in the path). The reason for this is so that any angle adjustments propogate backwards through
+			the path, so that critical rotations will happen before they are necessary.
+
+		if (it != raw_path.rbegin()) {
+			std::vector<point<int16_t>>::reverse_iterator last_it = it - 1;
+			it->d = last_it->d;
+		}
+
+		//Only do a rotational check if the robot is significantly close enough to danger
+		for (b = 0; b < L.num_obstacle; b++) {
+			closest = min(closest, float(sqrt(pow(L.obj_obstacle[b].y_pos - it->i, 2) + pow(L.obj_obstacle[b].x_pos - it->j, 2))));
+		}
+		for (b = 0; b < L.num_cube; b++) {
+			closest = min(closest, float(sqrt(pow(L.obj_cube[b].y_pos - it->i, 2) + pow(L.obj_cube[b].x_pos - it->j, 2))));
+		}
+		if (it->i < edge_buff || it->i > GRID_H - edge_buff
+			|| it->j < edge_buff || it->j > GRID_W - edge_buff
+			|| closest < (edge_buff * 2.0f)) {
+			//Check if the current angle of the robot is too close to danger
+			calculateCorners(*it, obj_robot_w, obj_robot_l, corners);
+			if (calculateArea(terrainGrid, corners) > 0) {
+				//Check surrounding angles for a better position
+				float optimal_dir = it->d, max_dir = optimal_dir + PI, curr_dir = optimal_dir + 0.1f, area, min_area = FLT_MAX;
+				point<int16_t> temp_p = makePoint(it->i, it->j, it->d);
+				for (curr_dir; curr_dir < max_dir; curr_dir += delta) {
+					//Update the point to check
+					temp_p.d = curr_dir;
+					//Get the corners at this angle
+					calculateCorners(temp_p, obj_robot_w, obj_robot_l, corners);
+					//Check the area of this angle
+					area = calculateArea(terrainGrid, corners);
+					//Record it if it's optimal
+					if (area < min_area) {
+						min_area = area;
+						optimal_dir = curr_dir;
+						//Stop looking if you find a rotation completely free from danger
+						if (area == 0.0f) {
+							break;
+						}
+					}
+				}
+				//Save this optimal new direction
+				it->d = optimal_dir;
+			}
+		}*/
+	}
+
+	//Turn the vector into a stack of points
+	std::stack<point<float>> path;
+	int16_t di, dj, last_di = INT16_MAX, last_dj = INT16_MAX;
+	float last_rot = FLT_MAX;
+	for (std::vector<point<int16_t>>::reverse_iterator it = raw_path.rbegin(); it < raw_path.rend(); it++) {
+		//Check if its the beginning & save it as the destination to return
+		if (it == raw_path.rbegin()) {
+			dest.i = float(it->i * GRID);
+			dest.j = float(it->j * GRID);
+			dest.d = it->d;
+		}
+
+		//Check if the end of the path is reached
+		if (it + 1 == raw_path.rend()) {
+			//Convert grid coordinates to CM
+			point<float> p = makePoint(float(it->i * GRID), float(it->j * GRID), it->d);
+			path.push(p);
+
+			//If the end is reached, skip the next point conversion
+			break;
+		}
+		else {
+			//Check if the point is different from the ones before, or if it is the last point in the list
+			di = (it + 1)->i - it->i;
+			dj = (it + 1)->j - it->j;
+			if (di != last_di || dj != last_dj || abs(it->d - last_rot) > 0.0001f) {
+				//Convert grid coordinates to CM
+				point<float> p = makePoint(float(it->i * GRID), float(it->j * GRID), it->d);
+				path.push(p);
+			}
+
+			//Save the current calculations for the next cycle
+			last_di = di;
+			last_dj = dj;
+			last_rot = it->d;
+		}
+	}
+	raw_path.clear();
+
+	//Output the path as a text file
+	std::ofstream out_text("path.txt");
+	if (!out_text.is_open() || out_text.bad() || path.size() == 0) {
+		dest.i = -1.0f;
+		dest.j = -1.0f;
+		dest.d = 0.0f;
+		return dest;
+	}
+	while (!path.empty()) {
+		point<float> temp_p = path.top();
+		out_text << temp_p.j << "," << mirrorI(temp_p.i) << "," << temp_p.d << std::endl;
+		path.pop();
+	}
+	out_text << "Mothership" << std::endl;
+	out_text.close();
+
+	return dest;
+}
+
+/*
+	Fill the line defined by p1 and p2
+*/
+void drawFilledLine(uint8_t terrainGrid[][GRID_W + 1], point<int16_t> p1, point<int16_t> p2, uint8_t value) {
+	int m_new = 2 * (p2.i - p1.i); 
+	int slope_error_new = m_new - (p2.j - p1.j); 
+	for (int x = p1.j, y = p1.i; x <= p2.j; x++) 
+	{ 
+		//Write value in terrain grid
+		terrainGrid[y][x] = terrainGrid[y][GRID_W] = value;
+		
+		// Add slope to increment angle formed 
+		slope_error_new += m_new; 
+  
+		// Slope error reached limit, time to 
+		// increment y and update slope error. 
+		if (slope_error_new >= 0) 
+		{ 
+			y++; 
+			slope_error_new  -= 2 * (p2.j - p1.j);
+
+		} 
+	}
 }
 
 /*
@@ -726,12 +1050,12 @@ int16_t calculateArea(uint8_t terrainGrid[][GRID_W + 1], point<float> (&corners)
 }
 
 
-int main() {
+int main(int argc, char** argv) {
 	//Inititalize
 	LIST_OBJECTS obj_list;
-	//std::stack<point<float>> path;
 	uint8_t terrainGrid[GRID_H][GRID_W + 1] = { 0 };
-
+	int16_t i, round = 0, cube = 0;
+	
 	//Get json input
 	std::cout << "Importing JSON objects..." << std::endl;
 	if (!getObjects(obj_list, "pathin/object_test.json")) {
@@ -746,27 +1070,54 @@ int main() {
 	std::cout << std::endl << "Generating terrain grid..." << std::endl;
 	makeTerrainGrid(obj_list, terrainGrid);
 	std::cout << "[SUCCESS] Terrain grid generated" << std::endl;
-
-	//Generate paths
-	std::cout << std::endl << "Generating path from start to cube 0..." << std::endl;
-	point<int16_t> start(GRID_H / 2, GRID_W / 2);
-	if (makePathCube(obj_list, terrainGrid, start, obj_list.obj_cube[0]).i < 0) {
-		std::cout << "[ERROR] Generated path returned empty" << std::endl;
+	
+	//Get the round number
+	if (argc > 2) {
+		round = argv[1];
+		cube = round * 2;
+	}
+	if (round > 0) {
+		std::cout << "Starting round " << round << "..." << std::endl;
+		
+		//Get cubes
+		point<int16_t> start((FIELD / 2.0f) + 15.24f, (FIELD / 2.0f) + 15.24f, 0), dest;
+		for(i=0; i<cube; i++) {
+			//Generate paths
+			std::cout << std::endl << "Generating path from start to cube " << i << "..." << std::endl;
+			dest = makePathCube(obj_list, terrainGrid, start, obj_list.obj_cube[i]);
+			if (dest.i < 0) {
+				std::cout << "[ERROR] Generated path returned empty" << std::endl;
+			}
+			else {
+				std::cout << "[SUCCESS] Path generated" << std::endl;
+			}
+			start = dest;
+		}
+		
+		//Go to mothership
+		std::cout << std::endl << "Generating path to mothership..." << std::endl;
+		dest = makePathMothership(obj_list, terrainGrid, start, obj_list.obj_motherhsip);
+		if (dest.i < 0) {
+			std::cout << "[ERROR] Generated path returned empty" << std::endl;
+		}
+		else {
+			std::cout << "[SUCCESS] Path generated" << std::endl;
+		}
+		start = dest;
+		
+		//Go home
+		std::cout << std::endl << "Generating path home..." << std::endl;
+		dest = makePathHome(obj_list, terrainGrid, start);
+		if (dest.i < 0) {
+			std::cout << "[ERROR] Generated path returned empty" << std::endl;
+		}
+		else {
+			std::cout << "[SUCCESS] Path generated" << std::endl;
+		}
 	}
 	else {
-		std::cout << "[SUCCESS] Path generated" << std::endl;
+		std::cout << "[ERROR] Invalid round number " << round << std::endl;
 	}
-
-	#ifdef _DEBUG
-	//Test output
-	std::cout << std::endl << "Generating terrain debug image..." << std::endl;
-	if (!testTerrainGrid(obj_list, terrainGrid, path)) {
-		std::cout << "[ERROR] Failed to generate terrain PPM" << std::endl;
-	}
-	else {
-		std::cout << "[SUCCESS] Terrain image generated" << std::endl;
-	}
-	#endif
 
 	//Cleanup
 	return 0;

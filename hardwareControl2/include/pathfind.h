@@ -20,7 +20,7 @@ constexpr float RT2 = 1.4142135f;
 constexpr int CM = 1;
 constexpr float GRID = CM / 4.0f;
 constexpr int FIELD = 244 * CM;
-constexpr int GRID_W = static_cast<const int>(FIELD / GRID);
+constexpr int GRID_W = const int(FIELD / GRID);
 constexpr int GRID_H = GRID_W;
 
 //Object properties
@@ -300,9 +300,12 @@ bool getObjects(LIST_OBJECTS &L, std::string filename);
 void makeTerrainGrid(LIST_OBJECTS &L, uint8_t terrainGrid[][GRID_W + 1]);
 void aStar(uint8_t terrainGrid[][GRID_W + 1], point<int16_t> src, point<int16_t> dest, std::vector<point<int16_t>> &path);
 void drawFilledCircle(uint8_t terrainGrid[][GRID_W + 1], point<int16_t> c, int16_t r, uint8_t v);
+void drawFilledLine(uint8_t terrainGrid[][GRID_W + 1], point<int16_t> p1, point<int16_t> p2, uint8_t v);
 bool testTerrainGrid(LIST_OBJECTS &L, uint8_t terrainGrid[][GRID_W + 1], std::stack<point<int16_t>> &path);
 
 point<float> makePathCube(LIST_OBJECTS &L, uint8_t terrainGrid[][GRID_W + 1], point<int16_t> src, PROP_CUBE &c);
+point<float> makePathMothership(LIST_OBJECTS &L, uint8_t terrainGrid[][GRID_W + 1], point<int16_t> src, PROP_MOTHERSHIP &m);
+point<float> makePathHome(LIST_OBJECTS &L, uint8_t terrainGrid[][GRID_W + 1], point<int16_t> src);
 
 void calculateCorners(point<int16_t> p, float w, float l, point<float> (&corners)[4]);
 int16_t calculateArea(uint8_t terrainGrid[][GRID_W + 1], point<float> (&corners)[4]);
