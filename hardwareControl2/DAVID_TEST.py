@@ -1,37 +1,21 @@
-def initScan(self):
-    turnAngle = 360
-    # rotate negative angles not working, debug
-    f = open("lidar2.txt", "w")
+import RPi.GPIO as GPIO
+import time
+GPIO.setmode(GPIO.BCM)
+GPIO.setwarnings(False)
+GPIO.setup(20,GPIO.OUT)
+GPIO.setup(16, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 
-    startAngle = self.yawObj.getAngle()
-    currentAngle = startAngle
-
-    inputString = "drive,{},{},{},{},{}".format(30, 30, -30, -30, 30000)
-
-    self.send(inputString)
-    c = 0
-    while currentAngle < round(abs(turnAngle) - startAngle):
-        lastAngle = currentAngle
-        currentAngle = round((self.yawObj.getAngle() - startAngle), 2)
+time.sleep(1)
 
 
-        if (currentAngle % .25 == 0):
-            print(currentAngle, ",", self.lidarObj.getReading())
-            writeString = (str(currentAngle) + "," + str(self.lidarObj.getReading()) + "\n")
-            f.write(writeString)
 
-        time.sleep(.01)
+print("SYSTEM READY")
+GPIO.output(20, GPIO.HIGH)
 
-        # if (c % 10000 == 0):
-        #     print(currentAngle, " < ", round(turnAngle-startAngle))
-        # if (c == 200000):
-        #     c = 0
-        # c += 1
+while True:
+    input_state = GPIO.input(16)
+    if input_state == True:
+        break
 
-    print("INFO: Done rotating, current angle = ", currentAngle)
-    inputString = "drive,{},{},{},{},{}".format(0, 0, 0, 0, 500)
-    self.send(inputString)
-
-    f.close()
-
-    print("GYRO: {}".format(self.yawObj.getAngle()))
+print("Starting mission...")
+GPIO.output(20, GPIO.LOW)
