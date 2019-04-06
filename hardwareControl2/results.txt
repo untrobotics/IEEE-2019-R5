@@ -1,0 +1,1086 @@
+X coord 0:6
+Y coord 0:3
+X coord 1:4
+Y coord 1:1
+Angle is: 1
+The x coordinates are 237.145
+The y coordinates are 138.905
+Angle is: 2
+The x coordinates are 237.099
+The y coordinates are 140.65
+Angle is: 3
+The x coordinates are 236.024
+The y coordinates are 142.341
+Angle is: 4
+The x coordinates are 236.916
+The y coordinates are 144.136
+Angle is: 5
+The x coordinates are 236.779
+The y coordinates are 145.876
+Angle is: 6
+The x coordinates are 236.612
+The y coordinates are 147.613
+Angle is: 7
+The x coordinates are 237.407
+The y coordinates are 149.469
+Angle is: 8
+The x coordinates are 237.177
+The y coordinates are 151.216
+Angle is: 9
+The x coordinates are 236.917
+The y coordinates are 152.96
+Angle is: 10
+The x coordinates are 236.626
+The y coordinates are 154.698
+Angle is: 11
+The x coordinates are 236.304
+The y coordinates are 156.432
+Angle is: 12
+The x coordinates are 235.953
+The y coordinates are 158.159
+Angle is: 13
+The x coordinates are 235.571
+The y coordinates are 159.88
+Angle is: 14
+The x coordinates are 235.16
+The y coordinates are 161.594
+Angle is: 15
+The x coordinates are 234.719
+The y coordinates are 163.301
+Angle is: 16
+The x coordinates are 234.247
+The y coordinates are 164.999
+Angle is: 17
+The x coordinates are 233.747
+The y coordinates are 166.69
+Angle is: 18
+The x coordinates are 233.217
+The y coordinates are 168.371
+Angle is: 19
+The x coordinates are 232.657
+The y coordinates are 170.042
+Angle is: 20
+The x coordinates are 228.31
+The y coordinates are 170.336
+Angle is: 21
+The x coordinates are 223.983
+The y coordinates are 170.488
+Angle is: 22
+The x coordinates are 221.534
+The y coordinates are 171.249
+Angle is: 23
+The x coordinates are 222.767
+The y coordinates are 173.498
+Angle is: 24
+The x coordinates are 226.687
+The y coordinates are 177.02
+Angle is: 25
+The x coordinates are 228.697
+The y coordinates are 179.844
+Angle is: 26
+The x coordinates are 224.343
+The y coordinates are 179.682
+Angle is: 27
+The x coordinates are 220.024
+The y coordinates are 179.381
+Angle is: 28
+The x coordinates are 216.625
+The y coordinates are 179.412
+Angle is: 29
+The x coordinates are 216.75
+The y coordinates are 181.278
+Angle is: 30
+The x coordinates are 217.7
+The y coordinates are 183.66
+Angle is: 31
+The x coordinates are 219.448
+The y coordinates are 186.604
+Angle is: 32
+The x coordinates are 220.269
+The y coordinates are 189.092
+Angle is: 33
+The x coordinates are 216.834
+The y coordinates are 188.901
+Angle is: 34
+The x coordinates are 210.944
+The y coordinates are 186.928
+Angle is: 35
+The x coordinates are 204.33
+The y coordinates are 184.193
+Angle is: 36
+The x coordinates are 201.072
+The y coordinates are 183.595
+Angle is: 37
+The x coordinates are 201.051
+The y coordinates are 185.305
+Angle is: 38
+The x coordinates are 202.565
+The y coordinates are 188.26
+Angle is: 39
+The x coordinates are 206.326
+The y coordinates are 193.17
+Angle is: 40
+The x coordinates are 209.168
+The y coordinates are 197.582
+Angle is: 41
+The x coordinates are 207.348
+The y coordinates are 198.173
+Angle is: 42
+The x coordinates are 199.584
+The y coordinates are 193.367
+Angle is: 43
+The x coordinates are 192.012
+The y coordinates are 188.31
+Angle is: 44
+The x coordinates are 188.233
+The y coordinates are 186.481
+Angle is: 45
+The x coordinates are 186.657
+The y coordinates are 186.657
+Angle is: 46
+The x coordinates are 188.565
+The y coordinates are 190.391
+Angle is: 47
+The x coordinates are 191.038
+The y coordinates are 194.937
+Angle is: 48
+The x coordinates are 197.382
+The y coordinates are 204.043
+Angle is: 49
+The x coordinates are 198.83
+The y coordinates are 208.103
+Angle is: 50
+The x coordinates are 194.368
+The y coordinates are 205.338
+Angle is: 51
+The x coordinates are 186.876
+The y coordinates are 198.555
+Angle is: 52
+The x coordinates are 182.719
+The y coordinates are 195.473
+Angle is: 53
+The x coordinates are 179.287
+The y coordinates are 193.064
+Angle is: 54
+The x coordinates are 178.893
+The y coordinates are 194.6
+Angle is: 55
+The x coordinates are 180.178
+The y coordinates are 198.596
+Angle is: 56
+The x coordinates are 181.895
+The y coordinates are 203.483
+Angle is: 57
+The x coordinates are 183.999
+The y coordinates are 209.286
+Angle is: 58
+The x coordinates are 182.203
+The y coordinates are 209.244
+Angle is: 59
+The x coordinates are 177.848
+The y coordinates are 204.876
+Angle is: 60
+The x coordinates are 174.16
+The y coordinates are 201.246
+Angle is: 61
+The x coordinates are 173.521
+The y coordinates are 202.756
+Angle is: 62
+The x coordinates are 174.718
+The y coordinates are 207.796
+Angle is: 63
+The x coordinates are 178.473
+The y coordinates are 218.242
+Angle is: 64
+The x coordinates are 180.12
+The y coordinates are 225.242
+Angle is: 65
+The x coordinates are 176.886
+The y coordinates are 222.353
+Angle is: 66
+The x coordinates are 169.699
+The y coordinates are 210.244
+Angle is: 67
+The x coordinates are 164.902
+The y coordinates are 202.516
+Angle is: 68
+The x coordinates are 161.884
+The y coordinates are 198.354
+Angle is: 69
+The x coordinates are 162.246
+The y coordinates are 202.511
+Angle is: 70
+The x coordinates are 164.522
+The y coordinates are 212.335
+Angle is: 71
+The x coordinates are 166.136
+The y coordinates are 221.311
+Angle is: 72
+The x coordinates are 165.899
+The y coordinates are 225.608
+Angle is: 73
+The x coordinates are 162.596
+The y coordinates are 220.359
+Angle is: 74
+The x coordinates are 159.211
+The y coordinates are 214.061
+Angle is: 75
+The x coordinates are 155.795
+The y coordinates are 206.707
+Angle is: 76
+The x coordinates are 153.853
+The y coordinates are 204.11
+Angle is: 77
+The x coordinates are 153.132
+The y coordinates are 206.34
+Angle is: 78
+The x coordinates are 153.793
+The y coordinates are 215.412
+Angle is: 79
+The x coordinates are 153.76
+The y coordinates are 222.562
+Angle is: 80
+The x coordinates are 152.788
+The y coordinates are 225.793
+Angle is: 81
+The x coordinates are 150.144
+The y coordinates are 219.138
+Angle is: 82
+The x coordinates are 147.737
+The y coordinates are 212.42
+Angle is: 83
+The x coordinates are 145.447
+The y coordinates are 204.653
+Angle is: 84
+The x coordinates are 144.059
+The y coordinates are 202.798
+Angle is: 85
+The x coordinates are 143.087
+The y coordinates are 204.901
+Angle is: 86
+The x coordinates are 142.322
+The y coordinates are 210.98
+Angle is: 87
+The x coordinates are 141.399
+The y coordinates are 218.049
+Angle is: 88
+The x coordinates are 140.057
+The y coordinates are 220.109
+Angle is: 89
+The x coordinates are 138.539
+The y coordinates are 216.148
+Angle is: 90
+The x coordinates are 137.16
+The y coordinates are 208.16
+Angle is: 91
+The x coordinates are 136.043
+The y coordinates are 201.15
+Angle is: 92
+The x coordinates are 135.066
+The y coordinates are 197.123
+Angle is: 93
+The x coordinates are 134.072
+The y coordinates are 196.079
+Angle is: 94
+The x coordinates are 132.835
+The y coordinates are 199.009
+Angle is: 95
+The x coordinates are 131.408
+The y coordinates are 202.909
+Angle is: 96
+The x coordinates are 130.157
+The y coordinates are 203.793
+Angle is: 97
+The x coordinates are 129.36
+The y coordinates are 200.683
+Angle is: 98
+The x coordinates are 128.67
+The y coordinates are 197.566
+Angle is: 99
+The x coordinates are 128.243
+The y coordinates are 193.458
+Angle is: 100
+The x coordinates are 127.783
+The y coordinates are 190.34
+Angle is: 101
+The x coordinates are 127.047
+The y coordinates are 189.186
+Angle is: 102
+The x coordinates are 126.141
+The y coordinates are 189.002
+Angle is: 103
+The x coordinates are 125.238
+The y coordinates are 188.802
+Angle is: 104
+The x coordinates are 124.338
+The y coordinates are 188.586
+Angle is: 105
+The x coordinates are 124.219
+The y coordinates are 185.456
+Angle is: 106
+The x coordinates are 123.654
+The y coordinates are 184.262
+Angle is: 107
+The x coordinates are 123.126
+The y coordinates are 183.063
+Angle is: 108
+The x coordinates are 122.636
+The y coordinates are 181.86
+Angle is: 109
+The x coordinates are 121.858
+The y coordinates are 181.599
+Angle is: 110
+The x coordinates are 120.743
+The y coordinates are 182.265
+Angle is: 111
+The x coordinates are 119.242
+The y coordinates are 183.839
+Angle is: 112
+The x coordinates are 118.43
+The y coordinates are 183.519
+Angle is: 113
+The x coordinates are 117.623
+The y coordinates are 183.185
+Angle is: 114
+The x coordinates are 117.23
+The y coordinates are 181.924
+Angle is: 115
+The x coordinates are 116.874
+The y coordinates are 180.663
+Angle is: 116
+The x coordinates are 116.557
+The y coordinates are 179.403
+Angle is: 117
+The x coordinates are 116.276
+The y coordinates are 178.146
+Angle is: 118
+The x coordinates are 116.034
+The y coordinates are 176.893
+Angle is: 119
+The x coordinates are 114.859
+The y coordinates are 177.393
+Angle is: 120
+The x coordinates are 113.16
+The y coordinates are 178.729
+Angle is: 121
+The x coordinates are 111.923
+The y coordinates are 179.161
+Angle is: 122
+The x coordinates are 111.194
+The y coordinates are 178.714
+Angle is: 123
+The x coordinates are 110.473
+The y coordinates are 178.255
+Angle is: 124
+The x coordinates are 110.319
+The y coordinates are 176.954
+Angle is: 125
+The x coordinates are 110.775
+The y coordinates are 174.841
+Angle is: 126
+The x coordinates are 110.122
+The y coordinates are 174.375
+Angle is: 127
+The x coordinates are 108.875
+The y coordinates are 174.696
+Angle is: 128
+The x coordinates are 106.993
+The y coordinates are 175.773
+Angle is: 129
+The x coordinates are 106.323
+The y coordinates are 175.24
+Angle is: 130
+The x coordinates are 106.306
+The y coordinates are 173.93
+Angle is: 131
+The x coordinates are 106.325
+The y coordinates are 172.631
+Angle is: 132
+The x coordinates are 106.38
+The y coordinates are 171.345
+Angle is: 133
+The x coordinates are 105.788
+The y coordinates are 170.802
+Angle is: 134
+The x coordinates are 104.511
+The y coordinates are 170.969
+Angle is: 135
+The x coordinates are 103.219
+The y coordinates are 171.101
+Angle is: 136
+The x coordinates are 101.912
+The y coordinates are 171.198
+Angle is: 137
+The x coordinates are 101.324
+The y coordinates are 170.578
+Angle is: 138
+The x coordinates are 102.232
+The y coordinates are 168.609
+Angle is: 139
+The x coordinates are 102.443
+The y coordinates are 167.339
+Angle is: 140
+The x coordinates are 102.688
+The y coordinates are 166.085
+Angle is: 141
+The x coordinates are 102.188
+The y coordinates are 165.479
+Angle is: 142
+The x coordinates are 100.123
+The y coordinates are 166.096
+Angle is: 143
+The x coordinates are 98.0269
+The y coordinates are 166.649
+Angle is: 144
+The x coordinates are 97.5182
+The y coordinates are 165.961
+Angle is: 145
+The x coordinates are 98.6599
+The y coordinates are 164.118
+Angle is: 146
+The x coordinates are 99.0243
+The y coordinates are 162.883
+Angle is: 147
+The x coordinates are 99.4198
+The y coordinates are 161.669
+Angle is: 148
+The x coordinates are 96.4537
+The y coordinates are 162.596
+Angle is: 149
+The x coordinates are 94.3016
+The y coordinates are 162.912
+Angle is: 150
+The x coordinates are 93.8587
+The y coordinates are 162.16
+Angle is: 151
+The x coordinates are 94.3036
+The y coordinates are 160.916
+Angle is: 152
+The x coordinates are 95.6615
+The y coordinates are 159.225
+Angle is: 153
+The x coordinates are 96.1737
+The y coordinates are 158.044
+Angle is: 154
+The x coordinates are 94.9167
+The y coordinates are 157.763
+Angle is: 155
+The x coordinates are 92.7509
+The y coordinates are 157.868
+Angle is: 156
+The x coordinates are 89.6556
+The y coordinates are 158.31
+Angle is: 157
+The x coordinates are 88.3733
+The y coordinates are 157.869
+Angle is: 158
+The x coordinates are 89.8736
+The y coordinates are 156.265
+Angle is: 159
+The x coordinates are 91.4146
+The y coordinates are 154.72
+Angle is: 160
+The x coordinates are 92.0548
+The y coordinates are 153.577
+Angle is: 161
+The x coordinates are 91.7751
+The y coordinates are 152.787
+Angle is: 162
+The x coordinates are 89.6072
+The y coordinates are 152.611
+Angle is: 163
+The x coordinates are 80.738
+The y coordinates are 154.41
+Angle is: 164
+The x coordinates are 74.678
+The y coordinates are 155.076
+Angle is: 165
+The x coordinates are 73.4089
+The y coordinates are 154.242
+Angle is: 166
+The x coordinates are 73.1205
+The y coordinates are 153.127
+Angle is: 167
+The x coordinates are 73.826
+The y coordinates are 151.782
+Angle is: 168
+The x coordinates are 75.5367
+The y coordinates are 150.258
+Angle is: 169
+The x coordinates are 74.3359
+The y coordinates are 149.372
+Angle is: 170
+The x coordinates are 70.1931
+The y coordinates are 148.968
+Angle is: 171
+The x coordinates are 67.0341
+The y coordinates are 148.267
+Angle is: 172
+The x coordinates are 65.8607
+The y coordinates are 147.18
+Angle is: 173
+The x coordinates are 65.6967
+The y coordinates are 145.935
+Angle is: 174
+The x coordinates are 68.538
+The y coordinates are 144.372
+Angle is: 175
+The x coordinates are 72.4073
+The y coordinates are 142.825
+Angle is: 176
+The x coordinates are 73.3159
+The y coordinates are 141.624
+Angle is: 177
+The x coordinates are 69.2532
+The y coordinates are 140.719
+Angle is: 178
+The x coordinates are 65.2039
+The y coordinates are 139.673
+Angle is: 179
+The x coordinates are 59.1719
+The y coordinates are 138.521
+Angle is: 180
+The x coordinates are 55.16
+The y coordinates are 137.16
+Angle is: 181
+The x coordinates are 56.1723
+The y coordinates are 135.746
+Angle is: 182
+The x coordinates are 59.2075
+The y coordinates are 134.438
+Angle is: 183
+The x coordinates are 64.26
+The y coordinates are 133.339
+Angle is: 184
+The x coordinates are 66.333
+The y coordinates are 132.207
+Angle is: 185
+The x coordinates are 71.4112
+The y coordinates are 131.408
+Angle is: 186
+The x coordinates are 74.5051
+The y coordinates are 130.575
+Angle is: 187
+The x coordinates are 77.6072
+The y coordinates are 129.848
+Angle is: 188
+The x coordinates are 77.7439
+The y coordinates are 128.81
+Angle is: 189
+The x coordinates are 72.9603
+The y coordinates are 126.992
+Angle is: 190
+The x coordinates are 67.2387
+The y coordinates are 124.831
+Angle is: 191
+The x coordinates are 66.4828
+The y coordinates are 123.422
+Angle is: 192
+The x coordinates are 65.7552
+The y coordinates are 121.982
+Angle is: 193
+The x coordinates are 64.0823
+The y coordinates are 120.289
+Angle is: 194
+The x coordinates are 58.566
+The y coordinates are 117.564
+Angle is: 195
+The x coordinates are 54.0904
+The y coordinates are 114.902
+Angle is: 196
+The x coordinates are 54.4915
+The y coordinates are 113.455
+Angle is: 197
+The x coordinates are 57.7867
+The y coordinates are 112.893
+Angle is: 198
+The x coordinates are 61.0755
+The y coordinates are 112.439
+Angle is: 199
+The x coordinates are 62.464
+The y coordinates are 111.44
+Angle is: 200
+The x coordinates are 60.1052
+The y coordinates are 109.114
+Angle is: 201
+The x coordinates are 55.9385
+The y coordinates are 105.982
+Angle is: 202
+The x coordinates are 50.9319
+The y coordinates are 102.322
+Angle is: 203
+The x coordinates are 49.712
+The y coordinates are 100.041
+Angle is: 204
+The x coordinates are 53.1138
+The y coordinates are 99.7402
+Angle is: 205
+The x coordinates are 56.4986
+The y coordinates are 99.547
+Angle is: 206
+The x coordinates are 58.0661
+The y coordinates are 98.5834
+Angle is: 207
+The x coordinates are 57.8604
+The y coordinates are 96.7548
+Angle is: 208
+The x coordinates are 55.9288
+The y coordinates are 93.9686
+Angle is: 209
+The x coordinates are 53.1965
+The y coordinates are 90.6183
+Angle is: 210
+The x coordinates are 54.0216
+The y coordinates are 89.16
+Angle is: 211
+The x coordinates are 57.4434
+The y coordinates are 89.2615
+Angle is: 212
+The x coordinates are 61.6837
+The y coordinates are 89.9972
+Angle is: 213
+The x coordinates are 65.0343
+The y coordinates are 90.3211
+Angle is: 214
+The x coordinates are 66.6918
+The y coordinates are 89.6286
+Angle is: 215
+The x coordinates are 67.5321
+The y coordinates are 88.406
+Angle is: 216
+The x coordinates are 66.7755
+The y coordinates are 86.0227
+Angle is: 217
+The x coordinates are 66.0814
+The y coordinates are 83.5985
+Angle is: 218
+The x coordinates are 65.451
+The y coordinates are 81.1348
+Angle is: 219
+The x coordinates are 61.7768
+The y coordinates are 76.1159
+Angle is: 220
+The x coordinates are 62.8537
+The y coordinates are 74.8096
+Angle is: 221
+The x coordinates are 64.7079
+The y coordinates are 74.1783
+Angle is: 222
+The x coordinates are 68.0475
+The y coordinates are 74.9309
+Angle is: 223
+The x coordinates are 69.8755
+The y coordinates are 74.4162
+Angle is: 224
+The x coordinates are 70.9807
+The y coordinates are 73.2514
+Angle is: 225
+The x coordinates are 69.9849
+The y coordinates are 69.9849
+Angle is: 226
+The x coordinates are 66.3049
+The y coordinates are 63.7873
+Angle is: 227
+The x coordinates are 62.8222
+The y coordinates are 57.4425
+Angle is: 228
+The x coordinates are 63.5556
+The y coordinates are 55.4141
+Angle is: 229
+The x coordinates are 66.3056
+The y coordinates are 55.6514
+Angle is: 230
+The x coordinates are 70.9529
+The y coordinates are 58.2574
+Angle is: 231
+The x coordinates are 73.5986
+The y coordinates are 58.6683
+Angle is: 232
+The x coordinates are 76.2095
+The y coordinates are 59.1469
+Angle is: 233
+The x coordinates are 78.7839
+The y coordinates are 59.6924
+Angle is: 234
+The x coordinates are 81.3204
+The y coordinates are 60.3034
+Angle is: 235
+The x coordinates are 83.8174
+The y coordinates are 60.9789
+Angle is: 236
+The x coordinates are 85.1551
+The y coordinates are 60.0595
+Angle is: 237
+The x coordinates are 85.9639
+The y coordinates are 58.325
+Angle is: 238
+The x coordinates are 85.2279
+The y coordinates are 54.0513
+Angle is: 239
+The x coordinates are 84.6261
+The y coordinates are 49.729
+Angle is: 240
+The x coordinates are 84.16
+The y coordinates are 45.3613
+Angle is: 241
+The x coordinates are 85.7702
+The y coordinates are 44.4503
+Angle is: 242
+The x coordinates are 88.335
+The y coordinates are 45.3335
+Angle is: 243
+The x coordinates are 91.3069
+The y coordinates are 47.1684
+Angle is: 244
+The x coordinates are 93.3229
+The y coordinates are 47.2806
+Angle is: 245
+The x coordinates are 94.4756
+The y coordinates are 45.6229
+Angle is: 246
+The x coordinates are 95.2661
+The y coordinates are 43.0648
+Angle is: 247
+The x coordinates are 96.9147
+The y coordinates are 42.348
+Angle is: 248
+The x coordinates are 99.6993
+The y coordinates are 44.4416
+Angle is: 249
+The x coordinates are 102.398
+The y coordinates are 46.6027
+Angle is: 250
+The x coordinates are 105.01
+The y coordinates are 48.8289
+Angle is: 251
+The x coordinates are 107.859
+The y coordinates are 52.0633
+Angle is: 252
+The x coordinates are 109.966
+The y coordinates are 53.467
+Angle is: 253
+The x coordinates are 111.724
+The y coordinates are 53.9615
+Angle is: 254
+The x coordinates are 113.18
+The y coordinates are 53.5302
+Angle is: 255
+The x coordinates are 114.643
+The y coordinates are 53.1245
+Angle is: 256
+The x coordinates are 116.113
+The y coordinates are 52.7443
+Angle is: 257
+The x coordinates are 117.364
+The y coordinates are 51.4154
+Angle is: 258
+The x coordinates are 119.072
+The y coordinates are 52.0612
+Angle is: 259
+The x coordinates are 120.941
+The y coordinates are 53.7217
+Angle is: 260
+The x coordinates are 123.615
+The y coordinates are 60.345
+Coordinates are for block 2.
+Angle is: 261
+The x coordinates are 125.427
+The y coordinates are 63.0834
+Angle is: 262
+The x coordinates are 127
+The y coordinates are 64.8704
+Angle is: 263
+The x coordinates are 128.385
+The y coordinates are 65.6967
+Angle is: 264
+The x coordinates are 129.738
+The y coordinates are 66.549
+Angle is: 265
+The x coordinates are 130.972
+The y coordinates are 66.4302
+Angle is: 266
+The x coordinates are 132.277
+The y coordinates are 67.3305
+Angle is: 267
+The x coordinates are 133.549
+The y coordinates are 68.2546
+Angle is: 268
+The x coordinates are 134.752
+The y coordinates are 68.202
+Angle is: 269
+The x coordinates are 135.956
+The y coordinates are 68.1705
+Angle is: 270
+The x coordinates are 137.16
+The y coordinates are 69.16
+Angle is: 271
+The x coordinates are 138.329
+The y coordinates are 70.1702
+Angle is: 272
+The x coordinates are 139.533
+The y coordinates are 69.2014
+Angle is: 273
+The x coordinates are 140.719
+The y coordinates are 69.2532
+Angle is: 274
+The x coordinates are 141.903
+The y coordinates are 69.3256
+Angle is: 275
+The x coordinates are 143.087
+The y coordinates are 69.4188
+Angle is: 276
+The x coordinates are 144.268
+The y coordinates are 69.5325
+Angle is: 277
+The x coordinates are 145.203
+The y coordinates are 71.652
+Angle is: 278
+The x coordinates are 146.624
+The y coordinates are 69.8218
+Angle is: 279
+The x coordinates are 147.798
+The y coordinates are 69.9972
+Angle is: 280
+The x coordinates are 151.226
+The y coordinates are 57.3906
+Coordinates are for block 2.
+Angle is: 281
+The x coordinates are 153.57
+The y coordinates are 52.7401
+Angle is: 282
+The x coordinates are 155.04
+The y coordinates are 53.0393
+Angle is: 283
+The x coordinates are 156.281
+The y coordinates are 54.3386
+Angle is: 284
+The x coordinates are 157.481
+The y coordinates are 55.6552
+Angle is: 285
+The x coordinates are 159.16
+The y coordinates are 55.0563
+Angle is: 286
+The x coordinates are 160.314
+The y coordinates are 56.414
+Angle is: 287
+The x coordinates are 161.719
+The y coordinates are 56.8304
+Angle is: 288
+The x coordinates are 163.117
+The y coordinates are 57.2713
+Angle is: 289
+The x coordinates are 164.508
+The y coordinates are 57.7364
+Angle is: 290
+The x coordinates are 165.206
+The y coordinates are 60.1052
+Angle is: 291
+The x coordinates are 166.188
+The y coordinates are 61.54
+Angle is: 292
+The x coordinates are 168.252
+The y coordinates are 60.2037
+Angle is: 293
+The x coordinates are 170.372
+The y coordinates are 58.9171
+Angle is: 294
+The x coordinates are 173.36
+The y coordinates are 55.8545
+Angle is: 295
+The x coordinates are 180.267
+The y coordinates are 44.7166
+Angle is: 296
+The x coordinates are 185.819
+The y coordinates are 37.3939
+Angle is: 297
+The x coordinates are 185.737
+The y coordinates are 41.8223
+Angle is: 298
+The x coordinates are 183.638
+The y coordinates are 49.7482
+Angle is: 299
+The x coordinates are 183.217
+The y coordinates are 54.0711
+Angle is: 300
+The x coordinates are 184.66
+The y coordinates are 54.8876
+Angle is: 301
+The x coordinates are 187.634
+The y coordinates are 53.1576
+Angle is: 302
+The x coordinates are 189.622
+The y coordinates are 53.2033
+Angle is: 303
+The x coordinates are 191.079
+The y coordinates are 54.1316
+Angle is: 304
+The x coordinates are 191.402
+The y coordinates are 56.7434
+Angle is: 305
+The x coordinates are 194.518
+The y coordinates are 55.2448
+Angle is: 306
+The x coordinates are 200.053
+The y coordinates are 50.5952
+Angle is: 307
+The x coordinates are 208.776
+The y coordinates are 42.1224
+Angle is: 308
+The x coordinates are 212.886
+The y coordinates are 40.2347
+Angle is: 309
+The x coordinates are 212.678
+The y coordinates are 43.9025
+Angle is: 310
+The x coordinates are 209.795
+The y coordinates are 50.597
+Angle is: 311
+The x coordinates are 208.014
+The y coordinates are 55.6513
+Angle is: 312
+The x coordinates are 205.411
+The y coordinates are 61.3592
+Angle is: 313
+The x coordinates are 206.042
+The y coordinates are 63.2933
+Angle is: 314
+The x coordinates are 209.404
+The y coordinates are 62.3487
+Angle is: 315
+The x coordinates are 214.942
+The y coordinates are 59.3782
+Angle is: 316
+The x coordinates are 217.007
+The y coordinates are 60.0529
+Angle is: 317
+The x coordinates are 216.146
+The y coordinates are 63.5042
+Angle is: 318
+The x coordinates are 213.704
+The y coordinates are 68.2396
+Angle is: 319
+The x coordinates are 211.122
+The y coordinates are 72.8662
+Angle is: 320
+The x coordinates are 209.934
+The y coordinates are 76.0952
+Angle is: 321
+The x coordinates are 209.435
+The y coordinates are 78.6332
+Angle is: 322
+The x coordinates are 210.445
+The y coordinates are 79.9035
+Angle is: 323
+The x coordinates are 214.628
+The y coordinates are 78.784
+Angle is: 324
+The x coordinates are 219.68
+The y coordinates are 77.2059
+Angle is: 325
+The x coordinates are 220.714
+The y coordinates are 78.6552
+Angle is: 326
+The x coordinates are 222.551
+The y coordinates are 79.5631
+Angle is: 327
+The x coordinates are 226.059
+The y coordinates are 79.4283
+Angle is: 328
+The x coordinates are 230.445
+The y coordinates are 78.8689
+Angle is: 329
+The x coordinates are 230.591
+The y coordinates are 81.0208
+Angle is: 330
+The x coordinates are 227.227
+The y coordinates are 85.16
+Angle is: 331
+The x coordinates are 226.371
+The y coordinates are 87.7094
+Angle is: 332
+The x coordinates are 228.987
+The y coordinates are 88.335
+Angle is: 333
+The x coordinates are 232.498
+The y coordinates are 88.583
+Angle is: 334
+The x coordinates are 237.825
+The y coordinates are 88.0624
+Angle is: 335
+The x coordinates are 242.292
+The y coordinates are 88.1363
+Angle is: 336
+The x coordinates are 244.958
+The y coordinates are 89.1651
+Angle is: 337
+The x coordinates are 246.7
+The y coordinates are 90.663
+Angle is: 338
+The x coordinates are 246.568
+The y coordinates are 92.9564
+Angle is: 339
+The x coordinates are 242.655
+The y coordinates are 96.6644
+Angle is: 340
+The x coordinates are 235.828
+The y coordinates are 101.248
+Angle is: 341
+The x coordinates are 231.712
+The y coordinates are 104.603
+Angle is: 342
+The x coordinates are 232.266
+The y coordinates are 106.258
+Angle is: 343
+The x coordinates are 235.659
+The y coordinates are 107.046
+Angle is: 344
+The x coordinates are 239.054
+The y coordinates are 107.942
+Angle is: 345
+The x coordinates are 241.48
+The y coordinates are 109.208
+Angle is: 346
+The x coordinates are 241.952
+The y coordinates are 111.032
+Angle is: 347
+The x coordinates are 240.443
+The y coordinates are 113.315
+Angle is: 348
+The x coordinates are 237.909
+The y coordinates are 115.745
+Angle is: 349
+The x coordinates are 237.286
+The y coordinates are 117.697
+Angle is: 350
+The x coordinates are 238.595
+The y coordinates are 119.274
+Angle is: 351
+The x coordinates are 242.843
+The y coordinates are 120.422
+Angle is: 352
+The x coordinates are 246.089
+The y coordinates are 121.851
+Angle is: 353
+The x coordinates are 250.31
+The y coordinates are 123.267
+Angle is: 354
+The x coordinates are 251.53
+The y coordinates are 125.139
+Angle is: 355
+The x coordinates are 251.722
+The y coordinates are 127.137
+Angle is: 356
+The x coordinates are 249.885
+The y coordinates are 129.278
+Angle is: 357
+The x coordinates are 247.009
+The y coordinates are 131.403
+Angle is: 358
+The x coordinates are 244.095
+The y coordinates are 133.426
+Angle is: 359
+The x coordinates are 243.144
+The y coordinates are 135.31
+Angle is: 360
+The x coordinates are 245.16
+The y coordinates are 137.16
