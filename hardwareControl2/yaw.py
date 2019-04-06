@@ -92,7 +92,7 @@ class yaw(object):
 
     # change 35000 to adjust angle, higher less spin
     def getAngle(self):
-        return -(self.angle/31000*360)
+        return (self.angle/31000*360)
 
     # print("ANGLE: ", angle)
 
