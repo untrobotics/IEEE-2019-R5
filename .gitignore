@@ -4,3 +4,4 @@ runit-services/tunnel-service/supervise
 runit-services/tunnel-service/log/supervise
 runit-services/tunnel-service/log/*
 librealsense/
+.DS_Store
